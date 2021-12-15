@@ -12,18 +12,22 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.oms.OrdersHelperClass;
 import com.example.oms.R;
+
+import java.util.ArrayList;
 
 public class OrderStatusAdapter extends RecyclerView.Adapter<OrderStatusAdapter.ViewHolder> {
 
     String data [];
     private int row_index;
 
-
-    public OrderStatusAdapter(Context context ,String[] data) {
+    ArrayList<OrdersHelperClass> list;
+    public OrderStatusAdapter(Context context ,String[] data, ArrayList<OrdersHelperClass>list1) {
         this.data = data;
         this.context = context;
         row_index=0;
+        list=list1;
     }
 
     Context context;
@@ -49,15 +53,19 @@ public class OrderStatusAdapter extends RecyclerView.Adapter<OrderStatusAdapter.
                 notifyItemChanged(position);
             }
         });
-        if(row_index==position){
-            holder.imageView.setColorFilter(Color.parseColor("#55E70D"));
-            holder.textView.setTextColor(Color.parseColor("#2D2B2B"));
+
+        for(int i=0;i<list.size();i++){
+            if(data[position].equalsIgnoreCase(list.get(i).getStatus())){
+                holder.prodtprice.setText(list.get(i).getDate());
+                holder.imageView.setColorFilter(Color.parseColor("#55E70D"));
+                holder.textView.setTextColor(Color.parseColor("#2D2B2B"));
+                break;
+            }else{
+                holder.imageView.setColorFilter(Color.parseColor("#7C7C7C"));
+                holder.textView.setTextColor(Color.parseColor("#7C7C7C"));
+            }
         }
-        else
-        {
-            holder.imageView.setColorFilter(Color.parseColor("#7C7C7C"));
-            holder.textView.setTextColor(Color.parseColor("#7C7C7C"));
-        }
+
     }
 
     @Override
@@ -66,7 +74,7 @@ public class OrderStatusAdapter extends RecyclerView.Adapter<OrderStatusAdapter.
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView textView;
+        TextView textView, prodtprice;
         ImageView imageView;
 
         public ViewHolder(@NonNull View itemView) {
@@ -74,6 +82,7 @@ public class OrderStatusAdapter extends RecyclerView.Adapter<OrderStatusAdapter.
 
             imageView=itemView.findViewById(R.id.statuscheck);
             textView=itemView.findViewById(R.id.pname1);
+            prodtprice=itemView.findViewById(R.id.prodtprice);
         }
     }
 }

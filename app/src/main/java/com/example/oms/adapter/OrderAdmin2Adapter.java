@@ -25,7 +25,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class OrderAdmin2Adapter extends RecyclerView.Adapter<OrderAdmin2Adapter.MyViewHolder> {
@@ -106,9 +108,18 @@ public class OrderAdmin2Adapter extends RecyclerView.Adapter<OrderAdmin2Adapter.
 
                             }
                         });
-                        stsRef.child("ViewOrders/"+ordersHelperClass.getKeyName()).child(ordersHelperClass.getKey()).child("status").setValue(autoCompleteTextView.getText().toString());
+                        Calendar calForDate =  Calendar.getInstance();
+                        SimpleDateFormat currentDate = new SimpleDateFormat("MMM dd, yyyy");
+                        String saveDate = currentDate.format(calForDate.getTime());
+
+                        stsRef.child("ViewOrders/"+ordersHelperClass.getKeyName()).child(ordersHelperClass.getKey()).child("StatusDelivery").push();
+                        String id = stsRef.child("ViewOrders/"+ordersHelperClass.getKeyName()).child(ordersHelperClass.getKey()).child("StatusDelivery").push().getKey();
+                        stsRef.child("ViewOrders/"+ordersHelperClass.getKeyName()).child(ordersHelperClass.getKey()).child("StatusDelivery").child(id).child("status").setValue(autoCompleteTextView.getText().toString());
+                        stsRef.child("ViewOrders/"+ordersHelperClass.getKeyName()).child(ordersHelperClass.getKey()).child("StatusDelivery").child(id).child("date").setValue(saveDate);
                         Intent intent = new Intent(context,StatusParcel.class);
                         intent.putExtra("stat", ordersHelperClass.getStatus());
+                        intent.putExtra("keyName", ordersHelperClass.getKeyName());
+                        intent.putExtra("key", ordersHelperClass.getKey());
                         context.startActivity(intent);
 
                     }
