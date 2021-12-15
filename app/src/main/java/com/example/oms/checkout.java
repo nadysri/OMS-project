@@ -104,7 +104,7 @@ public class checkout extends AppCompatActivity {
         //new_new_edit
         final DatabaseReference viewRef = FirebaseDatabase.getInstance().getReference().child("ViewOrders").child(Prevalent.currentUser.getUsername()).push();
         String key = viewRef.getKey();
-        String trackNo = viewRef.push().getKey();
+        //String trackNo = viewRef.push().getKey();
 
 
         HashMap<String, Object> viewMap = new HashMap<>();
@@ -115,9 +115,10 @@ public class checkout extends AppCompatActivity {
         viewMap.put("name",name.getText().toString());
         viewMap.put("quantity",qty.getText().toString());
         viewMap.put("phone",phone.getText().toString());
+        viewMap.put("address",address.getText().toString());
         viewMap.put("pname",nameprod.getText().toString());
         viewMap.put("orderId",key);
-        viewMap.put("trackingNo",trackNo);
+        //viewMap.put("trackingNo",trackNo);
 
 
 

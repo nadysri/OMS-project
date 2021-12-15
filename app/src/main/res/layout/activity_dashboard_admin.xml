@@ -272,4 +272,18 @@
 
         </GridLayout>
 
+    <Button
+        android:id="@+id/btnlogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="?android:attr/selectableItemBackground"
+        android:drawablePadding="25dp"
+        android:text="Sign Out"
+        android:textAllCaps="false"
+        android:textColor="#FF0000"
+        android:textSize="18dp" />
+
+
+
 </LinearLayout>
