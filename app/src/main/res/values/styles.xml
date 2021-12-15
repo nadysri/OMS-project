@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Widget.BottomNavigationView"
+        parent="Widget.Design.BottomNavigationView">
+        <item name="fontFamily">@font/muli</item>
+    </style>
+
+<!-- menu style-->
+    <style name="navigationTheme">
+        <item name="colorPrimary">#FFC107</item>
+        <item name="colorControlHighlight">#27000000</item>
+    </style>
+
+</resources>

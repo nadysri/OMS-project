@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="3dp"
+    app:cardCornerRadius="50dp"
+    android:layout_margin="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_marginLeft="50dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/dsimg"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/user"/>
+
+            <TextView
+                android:id="@+id/usernameds"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="username"
+                android:textStyle="bold"
+                android:layout_marginLeft="10dp"
+                android:textSize="17sp"
+                android:layout_gravity="center_vertical"/>
+
+            <TextView
+                android:id="@+id/totalsale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RM2300"
+                android:textStyle="bold"
+                android:layout_marginLeft="80dp"
+                android:textSize="17sp"
+                android:layout_gravity="center_vertical"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/rankno"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:text="1"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:fontFamily="@font/muliblack"
+        android:layout_marginLeft="15dp"
+        android:layout_gravity="center_vertical"/>
+
+</androidx.cardview.widget.CardView>

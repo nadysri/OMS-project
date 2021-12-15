@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:background="@color/cardview_light_background">
+
+    <TextView
+        android:id="@+id/slogan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="'Business, where success is at home.'"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="15dp"/>
+
+    <TextView
+        android:id="@+id/slogan2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ShopShip"
+        android:fontFamily="@font/mogena"
+        android:textSize="24sp"
+        android:layout_above="@+id/slogan"
+        android:layout_marginLeft="15dp"
+        android:textColor="@color/black"/>
+    
+    <ImageView
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:src="@drawable/logo"
+        android:layout_above="@+id/slogan2"
+        android:layout_marginLeft="15dp"/>
+
+    <ImageView
+        android:layout_width="160dp"
+        android:layout_height="175dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="-70dp"
+        android:layout_marginBottom="26dp"
+        android:src="@drawable/balloon" />
+
+
+</RelativeLayout>

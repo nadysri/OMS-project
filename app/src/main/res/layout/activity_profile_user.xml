@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".profileUser">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/muliblack"
+            android:text="My Profile"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_margin="2dp"
+            android:background="@drawable/bgborder"
+            android:elevation="30dp">
+
+            <ImageView
+                android:id="@+id/userpic"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"
+                android:src="@drawable/ic_baseline_account_circle_24" />
+
+            <TextView
+                android:id="@+id/fullname"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="40dp"
+                android:layout_toRightOf="@id/userpic"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/fullname"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/userpic"
+                android:textColor="#3A3A3A"
+                android:textSize="15sp" />
+
+
+            <ImageButton
+                android:id="@+id/editprofile"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="355dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:clickable="true"
+                android:radius="10dp"
+                android:src="@drawable/ic_baseline_edit_24" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp"
+            android:orientation="vertical">
+
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="380dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:background="@drawable/button"
+                android:drawableLeft="@drawable/ic_baseline_account_circle_24"
+                android:drawableTint="@color/black"
+                android:gravity="start|center_vertical"
+                android:hapticFeedbackEnabled="true"
+                android:text="Details"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:iconGravity="textStart"
+                app:iconPadding="10dp"
+                app:iconTint="@color/black"
+                app:strokeColor="@color/black" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/myorderbtn"
+                android:layout_width="380dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button"
+                android:drawableLeft="@drawable/ic_baseline_shopping_bag_24"
+                android:drawableTint="@color/black"
+                android:gravity="start|center_vertical"
+                android:hapticFeedbackEnabled="true"
+                android:text="My Orders"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:iconGravity="textStart"
+                app:iconPadding="10dp"
+                app:iconTint="@color/black" />
+
+
+            <Button
+                android:id="@+id/btnLogout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:drawablePadding="25dp"
+                android:text="Sign Out"
+                android:textAllCaps="false"
+                android:textColor="#FF0000"
+                android:textSize="18dp" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_navigationuser"
+        app:itemTextColor="@drawable/selector"
+        android:background="#FFC107"
+        app:itemIconTint="@drawable/selector"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_navigation"/>
+
+</RelativeLayout>

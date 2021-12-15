@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VerifyOTP"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="30dp"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_close_24"
+            android:padding="5dp"
+            app:tint="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CODE"
+            android:textSize="90sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/muliblack"
+            android:textAllCaps="true"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:includeFontPadding="false"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OTP VERIFICATION"
+            android:textSize="24sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/muliblack"
+            android:textAllCaps="true"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:includeFontPadding="false"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter OTP code that have been sent to your number +60**18"
+            android:textSize="16sp"
+            android:layout_marginTop="50dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/muli"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:includeFontPadding="false"/>
+
+        <com.chaos.view.PinView
+            android:id="@+id/verifyPin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:itemCount="6"
+            app:itemWidth="50dp"
+            app:itemHeight="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:itemBackground="#F6F6F6"
+            style="@style/PinWidget.PinView"
+            android:inputType="number"
+            android:cursorVisible="true"
+            app:cursorColor="@color/black"
+            app:hideLineWhenFilled="true"
+            app:itemRadius="5dp"/>
+
+        <Button
+            android:onClick="callNextScreenFromOtp"
+            android:id="@+id/verify_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFC107"
+            android:text="Verify"
+            android:layout_marginTop="30dp"
+            android:textColor="@color/black"/>
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content" />
+
+    </LinearLayout>
+
+</ScrollView>

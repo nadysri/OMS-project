@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.oms">
+    <!-- permission -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Oms"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".StatusParcel"
+            android:exported="false" />
+        <activity
+            android:name=".TestingOrder"
+            android:exported="false" />
+        <activity
+            android:name=".ForgetPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Leaderboard"
+            android:exported="false" />
+        <activity
+            android:name=".admin.DashboardAdmin"
+            android:exported="false" />
+        <activity
+            android:name=".admin.DropshipList"
+            android:exported="false" />
+        <activity
+            android:name=".LoginTesting"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".checkout"
+            android:exported="false" />
+        <activity
+            android:name=".editProfileUser"
+            android:exported="false" />
+        <activity
+            android:name=".CartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MyOrders"
+            android:exported="false" />
+        <activity
+            android:name=".profileUser"
+            android:exported="false" />
+        <activity
+            android:name=".TrackerUser"
+            android:exported="false" />
+        <activity
+            android:name=".CatalogueUser"
+            android:exported="false" />
+        <activity
+            android:name=".admin.NotificationAdmin"
+            android:exported="false" />
+        <activity
+            android:name=".admin.OrderAdmin"
+            android:exported="false" />
+        <activity
+            android:name=".admin.ProductAdmin"
+            android:exported="false" />
+        <activity
+            android:name=".admin.MainActivityAdmin"
+            android:exported="false" />
+        <activity android:name=".admin.addProd" />
+        <activity
+            android:name=".VerifyOTP"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Startup"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
