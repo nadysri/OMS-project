@@ -5,8 +5,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -34,6 +32,7 @@ import java.io.File;
 
 public class editProfileUser extends AppCompatActivity {
     FloatingActionButton fab;
+    CircularImageView imageView;
     TextInputLayout name, address, email, phone;
 
     String _NAME,_EMAIL,_ADDRESS,_PHONE,_USERNAME,link;
@@ -65,12 +64,12 @@ public class editProfileUser extends AppCompatActivity {
 
 
         name = findViewById(R.id.layout_first_name);
+        imageView = findViewById(R.id.layout_first_name);
         address = findViewById(R.id.layout_address);
         email = findViewById(R.id.layout_email);
         phone = findViewById(R.id.layout_phone);
         profilepic = findViewById(R.id.pic);
         fab = findViewById(R.id.floatingActionButton);
-        Bitmap image=((BitmapDrawable)profilepic.getDrawable()).getBitmap();
 
         showAllUserData();
 
@@ -91,7 +90,7 @@ public class editProfileUser extends AppCompatActivity {
 
         if(requestCode==1 && resultCode==RESULT_OK && data!=null && data.getData()!=null){
             imageUri = data.getData();
-            profilepic.setImageURI((imageUri));
+            imageView.setImageURI((imageUri));
             uploadPicture();
 
         }
@@ -114,7 +113,7 @@ public class editProfileUser extends AppCompatActivity {
                 _PHONE = snapshot.child("phone").getValue(String.class);
                 //_USERNAME = intent.getStringExtra("username");
 
-                Glide.with(getApplicationContext()).load(link).into(profilepic);
+                Glide.with(getApplicationContext()).load(link).into(imageView);
                 name.getEditText().setText(_NAME);
                 address.getEditText().setText(_ADDRESS );
                 email.getEditText().setText(_EMAIL);
@@ -131,7 +130,7 @@ public class editProfileUser extends AppCompatActivity {
     }
 
     public void update(View view) {
-        if(isNameChanged() || isAddressChanged() || isEmailChanged() || isPhoneChanged() || isImageChanged()){
+        if(isNameChanged() || isAddressChanged() || isEmailChanged() || isPhoneChanged()){
             Toast.makeText(this,"Profile been updated",Toast.LENGTH_LONG).show();
         }
         else
@@ -181,21 +180,8 @@ public class editProfileUser extends AppCompatActivity {
     private boolean isNameChanged() {
         if(!_NAME.equals(name.getEditText().getText().toString())){
 
-          reference.child(Prevalent.currentUser.getUsername()).child("name").setValue(name.getEditText().getText().toString());
-          _NAME = name.getEditText().getText().toString();
-          return true;
-
-        }
-        else{
-            return false;
-        }
-    }
-
-    private boolean isImageChanged() {
-        if(!link.equals(imageUri)){
-
-            reference.child(Prevalent.currentUser.getUsername()).child("phone").setValue(phone.getEditText().getText().toString());
-            link = link.getText().toString();
+            reference.child(Prevalent.currentUser.getUsername()).child("name").setValue(name.getEditText().getText().toString());
+            _NAME = name.getEditText().getText().toString();
             return true;
 
         }
