@@ -13,7 +13,6 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.example.oms.Prevalent.Prevalent;
 import com.example.oms.admin.model.CartModel;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -25,7 +24,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.squareup.picasso.Picasso;
 
 import java.security.Key;
 import java.text.SimpleDateFormat;
@@ -106,22 +104,20 @@ public class checkout extends AppCompatActivity {
         //new_new_edit
         final DatabaseReference viewRef = FirebaseDatabase.getInstance().getReference().child("ViewOrders").child(Prevalent.currentUser.getUsername()).push();
         String key = viewRef.getKey();
-        //String trackNo = viewRef.push().getKey();
+        String trackNo = viewRef.push().getKey();
 
 
         HashMap<String, Object> viewMap = new HashMap<>();
 
-        viewMap.put("image", imageView.getDrawable());
         viewMap.put("totalPrice", tprice.getText().toString());
         viewMap.put("date", saveDate);
         viewMap.put("time", saveTime);
-        viewMap.put("address",address.getText().toString());
         viewMap.put("name",name.getText().toString());
         viewMap.put("quantity",qty.getText().toString());
         viewMap.put("phone",phone.getText().toString());
         viewMap.put("pname",nameprod.getText().toString());
         viewMap.put("orderId",key);
-        //viewMap.put("trackingNo",trackNo);
+        viewMap.put("trackingNo",trackNo);
 
 
 
@@ -167,14 +163,13 @@ public class checkout extends AppCompatActivity {
                 for(DataSnapshot snapshot1 : snapshot.getChildren()){
                     for(DataSnapshot ds : snapshot1.getChildren()) {
 
-                        String link = ds.child("image").getValue(String.class);
+                        // String prodImage = snapshot.child("image").getValue(String.class);
                         String userpname = ds.child("pname").getValue().toString();
                         String userpqty = ds.child("quantity").getValue().toString();
                         String userprice = ds.child("price").getValue().toString();
                         String usertotalprice = ds.child("totalPrice").getValue().toString();
 
-                        //imageView.setImageURI(prodImage);
-                        Glide.with(getApplicationContext()).load(link).into(imageView);
+                        //   imageView.setImageURI(prodImage); belum jadi
                         nameprod.setText(userpname);
                         prices.setText("RM"+userprice);
                         qty.setText("x" + userpqty);
