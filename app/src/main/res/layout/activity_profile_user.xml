@@ -79,25 +79,6 @@
             android:layout_marginTop="15dp"
             android:orientation="vertical">
 
-
-            <com.google.android.material.button.MaterialButton
-                android:layout_width="380dp"
-                android:layout_height="80dp"
-                android:layout_gravity="center_horizontal|center_vertical"
-                android:background="@drawable/button"
-                android:drawableLeft="@drawable/ic_baseline_account_circle_24"
-                android:drawableTint="@color/black"
-                android:gravity="start|center_vertical"
-                android:hapticFeedbackEnabled="true"
-                android:text="Details"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                app:iconGravity="textStart"
-                app:iconPadding="10dp"
-                app:iconTint="@color/black"
-                app:strokeColor="@color/black" />
-
-
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/myorderbtn"
                 android:layout_width="380dp"
