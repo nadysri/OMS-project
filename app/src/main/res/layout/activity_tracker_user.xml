@@ -46,13 +46,15 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:fontFamily="@font/muli"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"
+                        android:id="@+id/tv_search"/>
 
 
                 </com.google.android.material.textfield.TextInputLayout>
 
 
                 <Button
+                    android:id="@+id/btn_search"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -76,7 +78,6 @@
                     android:layout_marginTop="1dp"
                     android:layout_marginEnd="1dp"
                     android:layout_marginBottom="1dp"
-                    android:visibility="invisible"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

@@ -138,6 +138,9 @@ public class LoginTesting extends AppCompatActivity {
                             }
                             else
                             {
+                                SharePref.init(getApplicationContext());
+                                SharePref.write(SharePref.LoginName, i_username);
+
                                 Toast.makeText(LoginTesting.this, "Successfully logged in.", Toast.LENGTH_SHORT).show();
                                 loading.dismiss();
 
