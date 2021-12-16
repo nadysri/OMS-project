@@ -13,7 +13,6 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.example.oms.Prevalent.Prevalent;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputLayout;
@@ -32,10 +31,10 @@ import java.io.File;
 
 public class editProfileUser extends AppCompatActivity {
     FloatingActionButton fab;
-    CircularImageView imageView;
+    ImageView imageView;
     TextInputLayout name, address, email, phone;
 
-    String _NAME,_EMAIL,_ADDRESS,_PHONE,_USERNAME,link;
+    String _NAME,_EMAIL,_ADDRESS,_PHONE,_USERNAME;
     CircularImageView profilepic;
 
     DatabaseReference reference;
@@ -64,7 +63,6 @@ public class editProfileUser extends AppCompatActivity {
 
 
         name = findViewById(R.id.layout_first_name);
-        imageView = findViewById(R.id.layout_first_name);
         address = findViewById(R.id.layout_address);
         email = findViewById(R.id.layout_email);
         phone = findViewById(R.id.layout_phone);
@@ -105,15 +103,12 @@ public class editProfileUser extends AppCompatActivity {
         databaseReference.child("Users").child(Prevalent.currentUser.getUsername()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                link = snapshot.child("image").getValue(String.class);
                 _NAME = snapshot.child("name").getValue(String.class);
                 _ADDRESS = snapshot.child("address").getValue(String.class);
                 _EMAIL = snapshot.child("email").getValue(String.class);
                 _PHONE = snapshot.child("phone").getValue(String.class);
                 //_USERNAME = intent.getStringExtra("username");
 
-                Glide.with(getApplicationContext()).load(link).into(imageView);
                 name.getEditText().setText(_NAME);
                 address.getEditText().setText(_ADDRESS );
                 email.getEditText().setText(_EMAIL);
@@ -139,7 +134,7 @@ public class editProfileUser extends AppCompatActivity {
     }
 
     private boolean isPhoneChanged() {
-        if(!_PHONE.equals(phone.getEditText().getText().toString())){
+        if(!_PHONE.equals(phone.getEditText().toString())){
 
             reference.child(Prevalent.currentUser.getUsername()).child("phone").setValue(phone.getEditText().getText().toString());
             _PHONE = phone.getEditText().getText().toString();
