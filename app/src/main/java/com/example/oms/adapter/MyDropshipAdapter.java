@@ -40,7 +40,6 @@ public class MyDropshipAdapter extends RecyclerView.Adapter<MyDropshipAdapter.My
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         UserHelperClass userHelperClass = list.get(position);
-        // holder.imageView.setImageURI(ordersHelperClass.getIm);
         holder.name.setText(userHelperClass.getName());
         holder.username.setText(userHelperClass.getUsername());
         holder.address.setText(userHelperClass.getAddress());

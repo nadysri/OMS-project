@@ -2,6 +2,8 @@ package com.example.oms;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -16,6 +18,8 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.oms.Prevalent.Prevalent;
+import com.example.oms.adapter.CheckoutAdapter;
+import com.example.oms.adapter.MyDropshipAdapter;
 import com.example.oms.admin.model.CartModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -29,15 +33,21 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.security.Key;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 
 public class checkout extends AppCompatActivity {
 
-    TextView name, address, phone,nameprod,desc,prices,qty,tprice;
+    TextView name, address, phone,nameprod,desc,prices,qty,tprice,fee;
     ImageView imageView;
     RadioGroup radioGroup;
     Button btn;
+    String Tprice;
+    RecyclerView recyclerView;
+    DatabaseReference database;
+    ArrayList<CartModel> list;
+    CheckoutAdapter checkoutAdapter;
 
 
     @Override
@@ -49,14 +59,49 @@ public class checkout extends AppCompatActivity {
         address = findViewById(R.id.address);
         phone = findViewById(R.id.phone);
         nameprod = findViewById(R.id.nameprod);
-        desc = findViewById(R.id.desc);
-        prices = findViewById(R.id.price);
-        qty= findViewById(R.id.qty);
         tprice = findViewById(R.id.tprice);
         imageView = findViewById(R.id.imageprod);
+        fee = findViewById(R.id.deliveryfee);
         radioGroup = findViewById(R.id.rdGroup);
         radioGroup.clearCheck();
         btn = findViewById(R.id.paynow);
+
+        Intent intent = getIntent();
+        String Tprice = intent.getStringExtra("totalPrice");
+        tprice.setText(Tprice);
+
+        recyclerView = findViewById(R.id.checkoutrecview);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        list = new ArrayList<>();
+        checkoutAdapter = new CheckoutAdapter(this,list);
+        recyclerView.setVisibility(View.VISIBLE);
+        recyclerView.setAdapter(checkoutAdapter);
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+        databaseReference.child("Cart")
+                .child(Prevalent.currentUser.getUsername())   //salahhh
+                .child("UNIQUE_USER_ID")
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot snapshot1 : snapshot.getChildren()){
+                            CartModel cartModel = snapshot1.getValue(CartModel.class);
+                            list.add(cartModel);
+
+                        }
+                        checkoutAdapter.notifyDataSetChanged();
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -88,7 +133,6 @@ public class checkout extends AppCompatActivity {
 
 
         showAddress();
-        showOrder();
 
 
     }
@@ -150,7 +194,7 @@ public class checkout extends AppCompatActivity {
                                     if (task.isSuccessful())
                                     {
                                         Toast.makeText(checkout.this, "your order has been placed successfully.", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(checkout.this, CatalogueUser.class);
+                                        Intent intent = new Intent(checkout.this, PaymentSuccess.class);
                                         startActivity(intent);
                                     }
                                 }
@@ -162,38 +206,6 @@ public class checkout extends AppCompatActivity {
 
     }
 
-
-    //retrieve order
-    private void showOrder() {
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-        databaseReference.child("Cart").child(Prevalent.currentUser.getUsername()).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot snapshot1 : snapshot.getChildren()){
-                    for(DataSnapshot ds : snapshot1.getChildren()) {
-
-                        String prodImage = ds.child("image").getValue(String.class);
-                        String userpname = ds.child("pname").getValue().toString();
-                        String userpqty = ds.child("quantity").getValue().toString();
-                        String userprice = ds.child("price").getValue().toString();
-                        String usertotalprice = ds.child("totalPrice").getValue().toString();
-
-                        Glide.with(getApplicationContext()).load(prodImage).into(imageView);
-                        nameprod.setText(userpname);
-                        prices.setText("RM"+userprice);
-                        qty.setText("x" + userpqty);
-                        tprice.setText("Total : RM"+usertotalprice);
-                    }
-                }
-            }
-
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-    }
 
     //retrieve address
 

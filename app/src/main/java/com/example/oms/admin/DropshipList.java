@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 
 import com.example.oms.OrdersHelperClass;
 import com.example.oms.Prevalent.Prevalent;
@@ -28,6 +30,7 @@ public class DropshipList extends AppCompatActivity {
     DatabaseReference database;
     MyDropshipAdapter myAdapter;
     ArrayList<UserHelperClass> list;
+    ImageButton btn;
 
 
 
@@ -37,6 +40,15 @@ public class DropshipList extends AppCompatActivity {
         setContentView(R.layout.activity_dropship_list);
 
         recyclerView = findViewById(R.id.dropsrecview);
+        btn = findViewById(R.id.backBtn);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DropshipList.this, DashboardAdmin.class);
+                startActivity(intent);
+            }
+        });
+
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -53,13 +65,6 @@ public class DropshipList extends AppCompatActivity {
                         for (DataSnapshot snapshot1 : snapshot.getChildren()){
                            UserHelperClass userHelperClass = snapshot1.getValue(UserHelperClass.class);
                             list.add(userHelperClass);
-
-                           /* if(userHelperClass.getUsername().equals("admin")) {
-                                recyclerView.setVisibility(View.GONE);
-                            }
-                            else {
-                                recyclerView.setVisibility(View.VISIBLE);
-                            }*/
 
                         }
                         myAdapter.notifyDataSetChanged();

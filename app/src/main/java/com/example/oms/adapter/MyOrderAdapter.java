@@ -30,7 +30,7 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.MyViewHo
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.orderitem,parent,false);
+        View v = LayoutInflater.from(context).inflate(R.layout.singlerow,parent,false);
         return  new MyViewHolder(v);
     }
 
@@ -38,13 +38,12 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.MyViewHo
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         OrdersHelperClass ordersHelperClass = list.get(position);
-        Glide.with(context).load(list.get(position).getImage())
-                .into(holder.imageView);
+        holder.tracks.setText(ordersHelperClass.getTrackNo());
+        holder.datesOr.setText("Order on: " + ordersHelperClass.getDate());
         holder.pname.setText(ordersHelperClass.getPname());
-        holder.qty.setText("Qty: "+ ordersHelperClass.getQuantity());
-        holder.orderId.setText("Order id:"+ ordersHelperClass.getOrderId());
+        holder.qtys.setText("Qty: "+ ordersHelperClass.getQuantity());
+        holder.id.setText(ordersHelperClass.getOrderId());
         holder.tprice.setText(ordersHelperClass.getTotalPrice());
-        holder.tracking.setText("Tracking No:"+ ordersHelperClass.getTrackNo());
     }
 
     @Override
@@ -54,18 +53,17 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.MyViewHo
 
     public static class  MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView pname, qty, orderId, tprice,tracking;
-        ImageView imageView;
+        TextView pname, qtys,tprice,datesOr,tracks,id;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            imageView = itemView.findViewById(R.id.imgproduct);
-            pname = itemView.findViewById(R.id.prod_name);
-            qty = itemView.findViewById(R.id.prodqty);
-            orderId = itemView.findViewById(R.id.prodid);
-            tprice = itemView.findViewById(R.id.prodtprice);
-            tracking = itemView.findViewById(R.id.prodtracking);
+            id = itemView.findViewById(R.id.orderID);
+            pname = itemView.findViewById(R.id.nametext);
+            datesOr = itemView.findViewById(R.id.dateorder);
+            tracks = itemView.findViewById(R.id.tracking2);
+            qtys = itemView.findViewById(R.id.qty);
+            tprice = itemView.findViewById(R.id.tprice);
         }
     }
 

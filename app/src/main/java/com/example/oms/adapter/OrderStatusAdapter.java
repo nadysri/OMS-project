@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class OrderStatusAdapter extends RecyclerView.Adapter<OrderStatusAdapter.ViewHolder> {
 
     String data [];
-    private int row_index;
+    int row_index;
 
     ArrayList<OrdersHelperClass> list;
     public OrderStatusAdapter(Context context ,String[] data, ArrayList<OrdersHelperClass>list1) {

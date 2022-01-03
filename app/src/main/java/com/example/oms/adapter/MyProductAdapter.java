@@ -67,7 +67,7 @@ public class MyProductAdapter extends RecyclerView.Adapter<MyProductAdapter.MyDr
         });
 
 
-        }
+    }
 
     private void addToCart(ProductModel productModel) {
         DatabaseReference userCart = FirebaseDatabase
@@ -133,16 +133,16 @@ public class MyProductAdapter extends RecyclerView.Adapter<MyProductAdapter.MyDr
     }
 
     public class MyDrinkViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-   @BindView(R.id.imageView)
+        @BindView(R.id.imageView)
         ImageView imageView;
-   @BindView(R.id.txtpname)
+        @BindView(R.id.txtpname)
         TextView txtpname;
-   @BindView(R.id.txtprice)
-   TextView txtprice;
-   @BindView(R.id.txtstock)
-    TextView txtstock;
+        @BindView(R.id.txtprice)
+        TextView txtprice;
+        @BindView(R.id.txtstock)
+        TextView txtstock;
 
-   RecyclerViewClickListener listener;
+        RecyclerViewClickListener listener;
 
         public void setListener(RecyclerViewClickListener listener) {
             this.listener = listener;

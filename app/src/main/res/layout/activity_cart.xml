@@ -36,48 +36,101 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="40dp"
+        android:layout_marginBottom="90dp"
         android:padding="8dp" />
+
 
     <LinearLayout
         android:id="@+id/bottompanel"
         android:layout_width="match_parent"
-        android:layout_height="117dp"
-        android:layout_alignParentStart="true"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="#E7E7E7"
-        android:orientation="vertical"
-        android:weightSum="12">
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:elevation="6dp"
+        android:orientation="horizontal"
+        android:background="#E7E7E7">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/dfee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Delivery fee:"
+            android:textColor="@color/black"
+            android:textStyle="italic"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/txttp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
             android:layout_marginTop="15dp"
             android:text="Total price:"
             android:textColor="@color/black"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/txtTotal"
-            android:layout_width="130dp"
-            android:layout_marginStart="10dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/coutbtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="CHECKOUT" />
-
+            android:textSize="18sp" />
 
     </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="1dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtFee"
+                android:layout_width="130dp"
+                android:layout_marginStart="1dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:textColor="@color/black"
+                android:text="RM10"
+                android:textSize="16sp"
+                android:textStyle="bold|italic" />
+
+            <TextView
+                android:id="@+id/txtTotal"
+                android:layout_width="130dp"
+                android:layout_marginTop="17dp"
+                android:layout_marginStart="10dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/coutbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="2dp"
+            android:background="@drawable/shape_rect06"
+            android:minWidth="120dp"
+            android:padding="5dp"
+            android:text="Place Order"
+            android:textColor="@color/white"/>
 
 
+    </LinearLayout>
 
 </RelativeLayout>

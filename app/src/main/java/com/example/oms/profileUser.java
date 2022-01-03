@@ -11,11 +11,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.oms.Prevalent.Prevalent;
-import com.example.oms.admin.MainActivityAdmin;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.database.DataSnapshot;
@@ -23,12 +22,14 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 public class profileUser extends AppCompatActivity {
     Button btnLogout;
     ImageButton editProfile;
+    ImageView profilepic;
     TextView fullnames, usernames;
-    MaterialButton materialButton;
+    MaterialButton materialButton,delivery;
 
 
     @Override
@@ -41,6 +42,8 @@ public class profileUser extends AppCompatActivity {
         fullnames =findViewById(R.id.fullname);
         usernames =findViewById(R.id.username);
         materialButton = findViewById(R.id.myorderbtn);
+        delivery = findViewById(R.id.deliveryaddr);
+        profilepic = findViewById(R.id.profileIV);
 
         showAllUserData();
 
@@ -53,13 +56,21 @@ public class profileUser extends AppCompatActivity {
             }
         });
 
+        delivery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(profileUser.this,deliveryAddress.class);
+                startActivity(i);
+                finish();
+            }
+        });
+
 
 
         editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(profileUser.this,editProfileUser.class);
-                startActivity(intent);
+                startActivity(new Intent(profileUser.this, editProfileUser.class));
             }
         });
 
@@ -130,12 +141,23 @@ public class profileUser extends AppCompatActivity {
         databaseReference.child("Users").child(Prevalent.currentUser.getUsername()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+
                 String user_username = snapshot.child("username").getValue(String.class);
                 String user_name = snapshot.child("name").getValue(String.class);
+                String profile = snapshot.child("image").getValue(String.class);
+
 
                 fullnames.setText(user_name);
                 usernames.setText("@"+ user_username);
+                try {
+                    Picasso.get().load(profile).placeholder(R.drawable.ic_person_gray).into(profilepic);
+                }
+                catch (Exception e) {
+                    profilepic.setImageResource(R.drawable.ic_person_gray);
+                }
             }
+
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {

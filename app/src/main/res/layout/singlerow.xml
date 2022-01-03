@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="5dp"
-    android:elevation="5dp"
+    android:elevation="100dp"
+    app:strokeWidth="1dp"
+    app:strokeColor="#6DFFC107"
     app:cardUseCompatPadding="true">
 
     <RelativeLayout
@@ -12,81 +14,109 @@
         android:layout_height="wrap_content"
         android:padding="6dp">
 
-        <ImageView
-            android:id="@+id/img1"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/mockup4"
-            app:civ_border_color="#FF000000"
-            app:civ_border_width="2dp" />
+        <TextView
+            android:id="@+id/orderID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="BIUGIFD928IUKGI"
+            android:textAllCaps="true"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:textSize="17sp" />
 
         <TextView
             android:id="@+id/nametext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/orderID"
             android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/img1"
             android:text="White Totebag Flower Design"
             android:textColor="#000"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
+
 
         <TextView
-            android:id="@+id/coursetext"
+            android:id="@+id/dateorder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/nametext"
             android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/img1"
-            android:text="Variation: White"
+            android:text="Order on:"
             android:textColor="#5C5C5C"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/order_card_dotted_divider"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_below="@+id/dateorder"
+            android:layout_marginTop="10dp"
+            android:contentDescription="Divider Line"
+            android:layerType="software"
+            app:srcCompat="@drawable/dotted_line_drawable" />
 
         <TextView
-            android:id="@+id/desc"
+            android:id="@+id/tracking"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/nametext"
+            android:layout_below="@id/order_card_dotted_divider"
             android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/img1"
-            android:text="Variation: White"
+            android:layout_marginTop="10dp"
+            android:gravity="left"
+            android:text="Tracking:"
             android:textColor="#5C5C5C"
-            android:textSize="18sp" />
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/tracking2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="94dp"
+            android:gravity="right"
+            android:text="MY123456789"
+            android:textColor="#5C5C5C"
+            android:textSize="17sp" />
+
+
 
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tracking"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="6dp"
             android:text="RM20"
-            android:textSize="18sp"
             android:textColor="#5C5C5C"
-            android:layout_toRightOf="@id/img1"
-            android:layout_below="@id/desc"
-            android:layout_marginLeft="10dp"/>
+            android:textSize="17sp" />
 
         <TextView
             android:id="@+id/qty"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/coursetext"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="120dp"
             android:gravity="right"
-            android:layout_toRightOf="@id/img1"
             android:text="x2"
             android:textColor="#5C5C5C"
-            android:textSize="18sp" />
+            android:textSize="17sp" />
+
+
 
         <TextView
+            android:layout_marginTop="10dp"
             android:id="@+id/tprice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/price"
             android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/img1"
             android:gravity="right"
             android:text="RM40"
             android:textColor="#5C5C5C"
-            android:textSize="22sp"
+            android:textSize="17sp"
             android:textStyle="bold" />
 
         <TextView
@@ -95,12 +125,11 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/price"
             android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/img1"
+            android:layout_marginTop="10dp"
             android:gravity="left"
             android:text="Total Price:"
             android:textColor="#5C5C5C"
-            android:textSize="22sp"
-            android:textStyle="bold" />
+            android:textSize="17sp" />
 
 
         <LinearLayout
@@ -113,10 +142,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tprice1"
-                android:text="Received Order"
-                android:layout_marginTop="7dp"
-                android:layout_marginLeft="228dp"/>
+                android:layout_marginLeft="206dp"
+                android:layout_marginTop="2dp"
+                android:text="Received Order" />
         </LinearLayout>
     </RelativeLayout>
 
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>

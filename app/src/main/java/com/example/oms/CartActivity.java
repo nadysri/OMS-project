@@ -85,8 +85,10 @@ public class CartActivity extends AppCompatActivity implements CartLoadListener 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(),checkout.class);
-                startActivity(i);
+                String tPrice = txtTotal.getText().toString();
+                Intent intent = new Intent(getApplicationContext(),checkout.class);
+                intent.putExtra("totalPrice", tPrice);
+                startActivity(intent);
             }
         });
 
@@ -144,7 +146,7 @@ public class CartActivity extends AppCompatActivity implements CartLoadListener 
 
     @Override
     public void onCartLoadSuccess(List<CartModel> cartModelList) {
-        double sum =0;
+        double sum =10.0;
         for(CartModel cartModel: cartModelList)
         {
             sum+=cartModel.getTotalPrice();

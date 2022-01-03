@@ -40,7 +40,6 @@
                 android:id="@+id/prodtprice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="28/11/2021"
                 android:layout_marginLeft="5dp"
                 android:textColor="#838383"
                 android:textSize="17sp" />

@@ -7,20 +7,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 
 import com.example.oms.R;
-import com.example.oms.adapter.MyProductAdapter;
+import com.example.oms.adapter.ProductAdapterAdmin;
 import com.example.oms.admin.listener.CartLoadListener;
 import com.example.oms.admin.listener.ProductLoadListener;
 import com.example.oms.admin.model.CartModel;
 import com.example.oms.admin.model.ProductModel;
 import com.example.oms.admin.utils.SpaceItemDecoration;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -111,7 +109,7 @@ public class ProductAdmin extends AppCompatActivity implements ProductLoadListen
 
     @Override
     public void onProductLoadSuccess(List<ProductModel> productModelList) {
-        MyProductAdapter adapter = new MyProductAdapter(this,productModelList,cartLoadListener);
+        ProductAdapterAdmin adapter = new ProductAdapterAdmin(this,productModelList,cartLoadListener);
         recyclerProduct.setAdapter(adapter);
     }
 

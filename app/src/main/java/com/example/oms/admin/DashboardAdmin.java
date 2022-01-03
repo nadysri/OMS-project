@@ -28,6 +28,7 @@ public class DashboardAdmin extends AppCompatActivity {
         prod = findViewById(R.id.productbtn);
         order = findViewById(R.id.orderbtn);
         ds = findViewById(R.id.dsbtn);
+        rank = findViewById(R.id.rankbtn);
         btnLogout = findViewById(R.id.btnlogout);
 
         btnLogout.setOnClickListener(v -> {
@@ -66,6 +67,11 @@ public class DashboardAdmin extends AppCompatActivity {
 
         order.setOnClickListener(v -> {
             Intent intent = new Intent(DashboardAdmin.this, OrderAdmin.class);
+            startActivity(intent);
+        });
+
+        rank.setOnClickListener(v -> {
+            Intent intent = new Intent(DashboardAdmin.this, RankDs.class);
             startActivity(intent);
         });
 

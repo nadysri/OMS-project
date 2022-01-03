@@ -16,6 +16,8 @@ public class OrdersHelperClass {
     String orderId;
     String keyName;
     String image;
+    String fee;
+    String time;
 
     public String getImage() {
         return image;
@@ -23,6 +25,22 @@ public class OrdersHelperClass {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getFee() {
+        return fee;
+    }
+
+    public void setFee(String fee) {
+        this.fee = fee;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public String getTrackNo() {

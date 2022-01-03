@@ -5,9 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
+import com.example.oms.Leaderboard;
+import com.example.oms.MainActivity;
 import com.example.oms.OrdersHelperClass;
 import com.example.oms.R;
 import com.example.oms.adapter.OrderAdmin2Adapter;
@@ -27,6 +32,7 @@ public class OrderAdmin extends AppCompatActivity {
     OrderAdmin2Adapter orderAdmin2Adapter;
     ArrayList<OrdersHelperClass> list;
     Button btn, status;
+    ImageButton sort, btns;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +50,16 @@ public class OrderAdmin extends AppCompatActivity {
         btn = (Button)findViewById(R.id.submitbtn);
         status = (Button)findViewById(R.id.statusbtn);
         status = (Button)findViewById(R.id.okbtn);
+        sort = (ImageButton) findViewById(R.id.sortdate);
+        btns = (ImageButton) findViewById(R.id.backBtns);
+        btns.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(OrderAdmin.this, DashboardAdmin.class);
+                startActivity(intent);
+            }
+        });
+
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
         databaseReference.child("ViewOrders")

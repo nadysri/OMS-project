@@ -6,6 +6,7 @@ public class SaleModel {
     private String rank;
     private String username;
     private String totalSale;
+    private String image;
 
     public String getRank() {
         return rank;
@@ -31,9 +32,18 @@ public class SaleModel {
         this.totalSale = totalSale;
     }
 
-    public SaleModel(String rank, String username, String totalSale) {
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public SaleModel(String rank, String username, String totalSale, String image) {
         this.rank = rank;
         this.username = username;
         this.totalSale = totalSale;
+        this.image = image;
     }
 }

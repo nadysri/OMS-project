@@ -154,5 +154,9 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
 
+    public void tos(View view) {
+        Intent intent = new Intent(RegisterActivity.this, TermOfServicesActivity.class);
+        startActivity(intent);
 
+    }
 }

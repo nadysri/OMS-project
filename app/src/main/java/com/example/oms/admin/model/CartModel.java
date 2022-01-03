@@ -1,7 +1,7 @@
 package com.example.oms.admin.model;
 
 public class CartModel {
-    private String key,pname, price, stock, image;
+    private String key,pname, price, stock, image,description;
     private int quantity;
     private float totalPrice;
 
@@ -14,6 +14,14 @@ public class CartModel {
 
     public void setKey(String key) {
         this.key = key;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getPname() {

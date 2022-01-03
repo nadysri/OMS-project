@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/muliblack"
             android:text="My Profile"
             android:textColor="@color/black"
@@ -25,38 +25,46 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:layout_margin="2dp"
-            android:background="@drawable/bgborder"
+            android:layout_height="180dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/pay"
             android:elevation="30dp">
 
-            <ImageView
-                android:id="@+id/userpic"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_centerVertical="true"
+
+            <com.blogspot.atifsoftwares.circularimageview.CircularImageView
+                android:id="@+id/profileIV"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerHorizontal="true"
                 android:layout_marginLeft="12dp"
-                android:src="@drawable/ic_baseline_account_circle_24" />
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_person_gray"
+                app:c_border="true"
+                app:c_border_color="@color/colorPrimary"
+                app:c_border_width="2dp" />
+
 
             <TextView
                 android:id="@+id/fullname"
-                android:layout_width="300dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="40dp"
-                android:layout_toRightOf="@id/userpic"
+                android:layout_below="@+id/profileIV"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="arin"
                 android:textColor="@color/black"
                 android:textSize="17sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/username"
-                android:layout_width="200dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/fullname"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@id/userpic"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="10dp"
+                android:text="arndy"
                 android:textColor="#3A3A3A"
                 android:textSize="15sp" />
 
@@ -67,7 +75,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="355dp"
                 android:layout_marginTop="10dp"
-                android:background="@color/white"
+                android:background="@color/transparent"
                 android:clickable="true"
                 android:radius="10dp"
                 android:src="@drawable/ic_baseline_edit_24" />
@@ -80,12 +88,44 @@
             android:orientation="vertical">
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/deliveryaddr"
+                android:layout_width="380dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                app:backgroundTint="#ECECEC"
+                android:drawableLeft="@drawable/ic_home_black_24dp"
+                android:drawableTint="@color/black"
+                android:layout_marginTop="30dp"
+                android:gravity="start|center_vertical"
+                android:hapticFeedbackEnabled="true"
+                android:text="delivery Address"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:iconGravity="textStart"
+                app:iconPadding="10dp"/>
+
+           <!-- <com.google.android.material.button.MaterialButton
+                android:id="@+id/salesbtn"
+                android:layout_width="380dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                app:backgroundTint="#ECECEC"
+                android:drawableLeft="@drawable/ic_baseline_attach_money_24"
+                android:drawableTint="@color/black"
+                android:gravity="start|center_vertical"
+                android:hapticFeedbackEnabled="true"
+                android:text="sales history"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:iconGravity="textStart"
+                app:iconPadding="10dp"/> -->
+
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/myorderbtn"
                 android:layout_width="380dp"
-                android:layout_height="80dp"
+                android:layout_height="70dp"
                 android:layout_gravity="center_horizontal|center_vertical"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/button"
+                app:backgroundTint="#ECECEC"
                 android:drawableLeft="@drawable/ic_baseline_shopping_bag_24"
                 android:drawableTint="@color/black"
                 android:gravity="start|center_vertical"
@@ -94,16 +134,14 @@
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:iconGravity="textStart"
-                app:iconPadding="10dp"
-                app:iconTint="@color/black" />
-
+                app:iconPadding="10dp"/>
 
             <Button
                 android:id="@+id/btnLogout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 android:background="?android:attr/selectableItemBackground"
                 android:drawablePadding="25dp"
                 android:text="Sign Out"

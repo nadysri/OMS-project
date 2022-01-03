@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="118dp"
+        android:layout_marginLeft="18dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -205,7 +205,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
+            android:layout_gravity="right"
             android:layout_margin="7dp"
             android:orientation="horizontal">
 
@@ -235,12 +235,6 @@
 
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/imgprod"
-        android:layout_width="110dp"
-        android:layout_height="120dp"
-        android:padding="5dp"
-        android:src="@drawable/mockup4" />
 
 
 </androidx.cardview.widget.CardView>

@@ -16,6 +16,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 import com.example.oms.OrdersHelperClass;
 import com.example.oms.R;
 import com.example.oms.StatusParcel;
@@ -52,7 +54,6 @@ public class OrderAdmin2Adapter extends RecyclerView.Adapter<OrderAdmin2Adapter.
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         OrdersHelperClass ordersHelperClass = list.get(position);
-        // holder.imageView.setImageURI(ordersHelperClass.getIm);
         holder.pname.setText(ordersHelperClass.getPname());
         holder.dsname.setText(ordersHelperClass.getName());
         holder.qty.setText("Qty: " +ordersHelperClass.getQuantity());
@@ -101,6 +102,7 @@ public class OrderAdmin2Adapter extends RecyclerView.Adapter<OrderAdmin2Adapter.
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 Object status = snapshot.getValue();
+
                             }
 
                             @Override
@@ -145,11 +147,13 @@ public class OrderAdmin2Adapter extends RecyclerView.Adapter<OrderAdmin2Adapter.
                 builder.setTitle("Shipment Arrangement");
                 builder.setView(view);
                 builder.setCancelable(true);
+
                 builder.show();
 
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
 
                         FirebaseDatabase database = FirebaseDatabase.getInstance();
                         DatabaseReference myRef = database.getReference();
@@ -170,7 +174,6 @@ public class OrderAdmin2Adapter extends RecyclerView.Adapter<OrderAdmin2Adapter.
 
                     }
                 });
-
 
             }
 
@@ -204,6 +207,7 @@ public class OrderAdmin2Adapter extends RecyclerView.Adapter<OrderAdmin2Adapter.
             btn = itemView.findViewById(R.id.arrangebtn);
             dateorder = itemView.findViewById(R.id.date);
             status = itemView.findViewById(R.id.statusbtn);
+
         }
     }
 }
