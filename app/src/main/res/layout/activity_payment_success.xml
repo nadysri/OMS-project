@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/pay"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:id="@+id/succeed_rl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="68dp"
+            android:layout_marginBottom="68dp">
+
+            <ImageView
+                android:id="@+id/succeed_icon"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/icon_payment_succeed" />
+
+            <TextView
+                android:id="@+id/succeed_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="2dp"
+                android:layout_toEndOf="@id/succeed_icon"
+                android:gravity="center"
+                android:text="Payment successfully!"
+                android:textColor="@color/black"
+                android:textSize="28sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/succeed_text"
+                android:layout_alignBottom="@id/succeed_icon"
+                android:layout_marginStart="18dp"
+                android:layout_marginBottom="2dp"
+                android:layout_toEndOf="@id/succeed_icon"
+                android:gravity="center"
+                android:text="Thankyou for your purchase"
+                android:textColor="@color/black"
+                android:textSize="21sp" />
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="18dp"
+            android:background="#FFFFFF"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="36dp">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="Your order was successfully placed. We have notified your order and will be shipped soon."
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="64dp"
+            android:layout_marginEnd="64dp"
+            android:layout_marginBottom="64dp"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/donebtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@color/white"
+                android:text="DONE" />
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>

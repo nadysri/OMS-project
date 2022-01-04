@@ -22,6 +22,8 @@ import com.example.oms.adapter.CheckoutAdapter;
 import com.example.oms.adapter.MyDropshipAdapter;
 import com.example.oms.admin.model.CartModel;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -159,8 +161,6 @@ public class checkout extends AppCompatActivity {
 
         HashMap<String, Object> viewMap = new HashMap<>();
 
-
-        //viewMap.put("image", imageView.idImageString);
         viewMap.put("totalPrice", tprice.getText().toString());
         viewMap.put("date", saveDate);
         viewMap.put("time", saveTime);
@@ -171,6 +171,31 @@ public class checkout extends AppCompatActivity {
         viewMap.put("pname",nameprod.getText().toString());
         viewMap.put("orderId",key);
         //viewMap.put("trackingNo",trackNo);
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("ViewOrders").child(Prevalent.currentUser.getUsername()).push();
+        reference.setValue(viewMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                for (int i=0; i<list.size(); i++){
+                    String pname = list.get(i).getPname();
+                    String price = list.get(i).getPrice();
+                    int qty = list.get(i).getQuantity();
+
+                    HashMap<String, Object> viewMap1 = new HashMap<>();
+
+                    viewMap1.put("name",pname);
+                    viewMap1.put("quantity",qty);
+                    viewMap1.put("price",price);
+
+                }
+                Toast.makeText(checkout.this,"Order Succesfully Placed", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(checkout.this,""+e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
 

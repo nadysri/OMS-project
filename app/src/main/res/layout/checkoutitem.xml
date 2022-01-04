@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/itemorder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:elevation="3dp"
+        android:background="@drawable/border">
+
+        <ImageView
+            android:id="@+id/imageprod"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/mockup4" />
+
+        <TextView
+            android:id="@+id/nameprod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="130dp"
+            android:text="Totebag Minimal"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="130dp"
+            android:layout_marginTop="30dp"
+            android:text="Variation: white"
+            android:textSize="16sp" />
+
+
+        <TextView
+            android:id="@+id/prices"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="130dp"
+            android:layout_marginTop="60dp"
+            android:text="RM20"
+            android:textSize="16sp" />
+
+
+        <TextView
+            android:id="@+id/qtyy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="130dp"
+            android:layout_marginTop="90dp"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

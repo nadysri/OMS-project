@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TermOfServicesActivity">
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/previous_step"
+                android:background="@color/transparent"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shopship Mobile Orders Management App’s Products and Service Terms and Conditions"
+                android:textStyle="bold"
+                android:padding="20dp"
+                android:textAlignment="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+
+                android:text="Shopship is a an order management for dropship. Shopship promotes mobile commerce services
+for communities willing to earn money or side income (are referred to as dropships).
+Shopship company fully owns the intellectual property rights of the Shopship system. This
+letter is to notify the sellers on the Shopship Mobile Order Management App’s Product and Service
+Terms and Conditions, charges and rates that incur to the dropships, as dropship register with the Shopship. One of the key strengths
+of Cashierbook system is its integrated data privacy mechanism and most trusted and secured
+app."/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:text="Shopship Mobile Orders Management’s Products and Service Terms and Conditions"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+
+                android:text="
+1. On the hopship Mobile Orders’s payment management, all buyers can pay their
+purchases using either bank transfer, PayPal, credit card or debit card through iPay88
+payment gateway service.
+\n\n
+2. The dropships of Shopship system are solely responsible for any actions that they
+performed on the Shopship system according to the Malaysian law. Shopship
+company will not be liable for any illegal activities performed by the sellers in the
+Shopship system.
+\n\n
+3. For items listed in the Shopship system, when dropship make a purchase of the listed item,
+Shopship company will not charge an administration fee. On the delivery services, a delivery charge of RM10 per item will be
+imposed on the dropships.
+\n\n
+4. All items’ size is limit to no more than “A4” size and should be weight less than 2kg. Any
+items that are more than “A4” and weight more than 2kg will be charged on a case-to-case
+basis for the transporting fee. Sellers are required to indicate on the Shopship Mobile
+App.
+"/>
+            <!--<ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/delivery_table"
+                /> -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="
+\n\n5. In case of dropships wants to return any items to the item’s supplier, dropships need to return the
+purchased items to the respective supplier’s physical shop by themselves without
+going through Shopship system. Shopship system will not process any transaction
+and activity related to the return item event.
+\n\n
+
+6. Shopship company reserved the right to reject any item(s) in the dropship’s order if the
+sellers cannot deliver the buyer’s requested item(s) to the Shopship item
+collection (pick-up) counter within the time frame that specified by the Shopship
+system.
+\n\n
+7. Shopship company reserved the rights to review and change the mentioned terms and
+conditions in this letter at any given time and conditions without further reference to the tenants and dropships.
+\n\n
+
+8. If dropship had made his or her payment after purchased item at Shopship system and then
+admin of Shopship cancel order due to any reason. Hence, admin of Shopship will absorb the
+transaction fee lost occurred from the dropship’s transaction.
+\n\n
+
+9. Shopship HQ and dropships agreed to authorize WWM management and Shopship
+company to view and use the data from Shopship system.
+\n\n
+Sho[ship team looks forward to work together with you to bring your business’s sales
+performance to the next level with Shopship’s services."/>
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

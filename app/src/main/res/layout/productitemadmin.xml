@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="15dp"
+    android:elevation="8dp"
+    android:layout_margin="7dp"
+    android:padding="2dp"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="10dp">
+
+
+
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:id="@+id/imageView"
+            android:src="@drawable/mockup4"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtpname"
+            android:text="Totebag"
+            android:textSize="16sp"
+            android:lines="2"
+            android:gravity="start"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtprice"
+            android:text="Totebag"
+            android:textSize="18sp"
+            android:gravity="start"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtstock"
+            android:text="Totebag"
+            android:textSize="16sp"
+            android:gravity="start" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editProd"
+            android:layout_marginTop="5dp"
+            android:background="@color/basic"
+            android:src="@drawable/ic_baseline_edit_24"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/deleteProd"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="@color/basic"
+            android:layout_marginLeft="20dp"
+            android:background="#F44336"
+            android:src="@drawable/ic_baseline_delete_24"/>
+    </LinearLayout>
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
