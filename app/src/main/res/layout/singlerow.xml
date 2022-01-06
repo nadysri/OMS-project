@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/orderID"
             android:layout_marginLeft="10dp"
-            android:text="White Totebag Flower Design"
+            android:text="Abstract Face Shirt"
             android:textColor="#000"
             android:textSize="16sp" />
 

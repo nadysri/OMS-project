@@ -83,7 +83,7 @@
         <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/activity_leaderboard.xml" value="0.25" />
         <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/activity_login_testing.xml" value="0.15" />
-        <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/activity_main.xml" value="0.1728395061728395" />
+        <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/activity_main_admin.xml" value="0.25" />
         <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/activity_my_orders.xml" value="0.33" />
         <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/activity_navigation.xml" value="0.17527173913043478" />
@@ -92,6 +92,7 @@
         <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/activity_order_summary.xml" value="0.2203125" />
         <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/activity_orderprocess.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/activity_payment_success.xml" value="0.25" />
+        <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/activity_pop_up.xml" value="0.33" />
         <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/activity_product_admin.xml" value="0.22" />
         <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/activity_profile_user.xml" value="0.25" />
         <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/activity_rank_ds.xml" value="0.25" />
@@ -107,6 +108,7 @@
         <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/activity_track_parcel.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/activity_tracker_user.xml" value="0.25" />
         <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/activity_verify_otp.xml" value="0.22" />
+        <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/activity_view_reward.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/bottom_nav_menu.xml" value="0.1" />
         <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/checkoutitem.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/content_user.xml" value="0.10989583333333333" />

@@ -12,7 +12,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.oms.OrdersHelperClass;
+import com.example.oms.Prevalent.Prevalent;
 import com.example.oms.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -40,10 +46,35 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.MyViewHo
         OrdersHelperClass ordersHelperClass = list.get(position);
         holder.tracks.setText(ordersHelperClass.getTrackNo());
         holder.datesOr.setText("Order on: " + ordersHelperClass.getDate());
-        holder.pname.setText(ordersHelperClass.getPname());
-        holder.qtys.setText("Qty: "+ ordersHelperClass.getQuantity());
+        //holder.pname.setText(ordersHelperClass.getPname());
+        //holder.qtys.setText("Qty: "+ ordersHelperClass.getQuantity());
         holder.id.setText(ordersHelperClass.getOrderId());
         holder.tprice.setText(ordersHelperClass.getTotalPrice());
+
+        loadOrderInfo(ordersHelperClass, holder);
+    }
+
+    private void loadOrderInfo(OrdersHelperClass ordersHelperClass, MyViewHolder holder) {
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+        String key = databaseReference.getKey();
+        databaseReference.child("ViewOrders").child(Prevalent.currentUser.getUsername()).child("item")
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                                String prodName = "" + snapshot.child("pname").getValue();
+                                holder.pname.setText(prodName);
+                                String prodQty = "" + snapshot.child("quantity").getValue();
+                                holder.qtys.setText(prodQty);
+                            }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
     }
 
     @Override

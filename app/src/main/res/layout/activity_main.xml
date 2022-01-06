@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     tools:openDrawer="end"
-    android:fitsSystemWindows="true"
     android:id="@+id/drawer_layout">
 
     <LinearLayout
@@ -31,7 +30,6 @@
         </com.google.android.material.appbar.AppBarLayout>
 
 
-
     <LinearLayout
         android:id="@+id/content"
         android:layout_width="match_parent"
@@ -45,10 +43,10 @@
             android:layout_height="wrap_content">
 
             <LinearLayout
-                android:id="@id/sliders"
+                android:id="@+id/sliderimage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="10dp"
                 android:background="@color/white"
                 android:orientation="vertical">
 
@@ -82,10 +80,61 @@
             </LinearLayout>
 
 
+            <LinearLayout
+                android:id="@+id/pointer"
+                android:layout_width="match_parent"
+                android:layout_height="170dp"
+                android:layout_below="@id/sliderimage"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/earnpts"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/pointcollect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="65dp"
+                    android:fontFamily="@font/muliblack"
+                    android:text="0pts"
+                    android:textColor="@color/black"
+                    android:textSize="24dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="10dp"
+                    android:text="Earn more point for every order to claim your reward."
+                    android:textColor="#452A01"
+                    android:textSize="14dp" />
+
+                <Button
+                    android:id="@+id/viewreward"
+                    android:background="@color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textAllCaps="false"
+                    android:clickable="true"
+                    android:text="View reward >"
+                    android:textColor="#971309"
+                    android:textSize="14dp" />
+
+
+            </LinearLayout>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/sliders"
+                android:layout_below="@+id/pointer"
+                android:layout_marginTop="3dp"
                 android:background="@color/white"
                 android:orientation="vertical">
 
@@ -101,9 +150,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="330dp"
+                    android:layout_marginLeft="320dp"
                     android:clickable="true"
-                    android:padding="12dp"
+                    android:padding="10dp"
                     android:text="View all"
                     android:textSize="14sp"
                     android:textStyle="bold" />
@@ -114,6 +163,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
                     android:padding="10dp"
+                    android:layout_marginBottom="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -146,7 +196,11 @@
         </RelativeLayout>
 
 
+
+
     </LinearLayout>
+
+
 
 </LinearLayout>
 

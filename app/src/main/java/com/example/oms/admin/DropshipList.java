@@ -76,5 +76,12 @@ public class DropshipList extends AppCompatActivity {
 
                     }
                 });
+
+        /*FirebaseDatabase database1 = FirebaseDatabase.getInstance();
+        DatabaseReference stsRef1 = database1.getReference();
+
+        for(int i=0;i<list.size();i++){
+
+        }*/
     }
 }

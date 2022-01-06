@@ -20,6 +20,12 @@
         android:theme="@style/Theme.Oms"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".DialogBaseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PopUpActivity"
+            android:exported="false" />
+        <activity
             android:name=".PaymentSuccess"
             android:exported="false" />
         <activity

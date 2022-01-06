@@ -22,12 +22,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
 
 public class RegisterActivity extends AppCompatActivity {
 
     private Button RegisterButton;
-    TextInputLayout regName, regusername,regEmail,regAddress, regPnumber, regPassword;
+    TextInputLayout regName, regusername,regEmail,regAddress, regPnumber, regPassword, regCode;
     private ProgressDialog loading;
 
     @Override
@@ -42,6 +44,7 @@ public class RegisterActivity extends AppCompatActivity {
         regAddress = findViewById(R.id.regaddress);
         regPnumber = findViewById(R.id.regnumber);
         regPassword = findViewById(R.id.regpassword);
+        regCode = findViewById(R.id.regcode);
         loading= new ProgressDialog(this);
         RegisterButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +62,7 @@ public class RegisterActivity extends AppCompatActivity {
         String i_address= regAddress.getEditText().getText().toString();
         String i_number= regPnumber.getEditText().getText().toString();
         String i_password= regPassword.getEditText().getText().toString();
+        String i_code= regCode.getEditText().getText().toString();
 
         if (TextUtils.isEmpty(i_name))
         {
@@ -84,6 +88,10 @@ public class RegisterActivity extends AppCompatActivity {
         {
             Toast.makeText(this, "Enter your password", Toast.LENGTH_SHORT).show();
         }
+        if (!i_code.equals("AVSN7"))
+        {
+            Toast.makeText(this, "Please enter the right code", Toast.LENGTH_SHORT).show();
+        }
         else
         {
             loading.setTitle("Sign In");
@@ -91,12 +99,12 @@ public class RegisterActivity extends AppCompatActivity {
             loading.setCanceledOnTouchOutside(false);
             loading.show();
 
-            ExistingNumber(i_name, i_number, i_password, i_email, i_address, i_username);
+            ExistingNumber(i_name, i_number, i_password, i_email, i_address, i_username, i_code);
         }
 
     }
 
-    private void ExistingNumber(String i_name, String i_number, String i_password, String i_email, String i_address, String i_username) {
+    private void ExistingNumber(String i_name, String i_number, String i_password, String i_email, String i_address, String i_username, String i_code) {
         final DatabaseReference Rootref;
         Rootref= FirebaseDatabase.getInstance().getReference();
 
@@ -104,7 +112,11 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot snapshot)
             {
-                if(!(snapshot.child("Users").child(i_username).exists()))
+                String saveDate;
+                Calendar calForDate =  Calendar.getInstance();
+                SimpleDateFormat currentDate = new SimpleDateFormat("MMM dd, yyyy");
+                saveDate = currentDate.format(calForDate.getTime());
+                if(!(snapshot.child("Users").child(i_username).exists() ))
                 {
                     HashMap<String,Object>userdataMap =new HashMap<>();
                     userdataMap.put("name",i_name);
@@ -113,6 +125,8 @@ public class RegisterActivity extends AppCompatActivity {
                     userdataMap.put("email",i_email);
                     userdataMap.put("phone",i_number);
                     userdataMap.put("password",i_password);
+                    userdataMap.put("startDate",saveDate);
+
 
                     Rootref.child("Users").child(i_username).updateChildren(userdataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override

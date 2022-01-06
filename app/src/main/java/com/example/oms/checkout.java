@@ -155,47 +155,17 @@ public class checkout extends AppCompatActivity {
         final DatabaseReference viewRef = FirebaseDatabase.getInstance().getReference().child("ViewOrders").child(Prevalent.currentUser.getUsername()).push();
         String key = viewRef.getKey();
 
-
-        //String trackNo = viewRef.push().getKey();
-
-
+        int point = 50;
         HashMap<String, Object> viewMap = new HashMap<>();
 
         viewMap.put("totalPrice", tprice.getText().toString());
         viewMap.put("date", saveDate);
+        viewMap.put("points", point);
         viewMap.put("time", saveTime);
         viewMap.put("name",name.getText().toString());
-        viewMap.put("quantity",qty.getText().toString());
         viewMap.put("phone",phone.getText().toString());
         viewMap.put("address",address.getText().toString());
-        viewMap.put("pname",nameprod.getText().toString());
         viewMap.put("orderId",key);
-        //viewMap.put("trackingNo",trackNo);
-
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("ViewOrders").child(Prevalent.currentUser.getUsername()).push();
-        reference.setValue(viewMap).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                for (int i=0; i<list.size(); i++){
-                    String pname = list.get(i).getPname();
-                    String price = list.get(i).getPrice();
-                    int qty = list.get(i).getQuantity();
-
-                    HashMap<String, Object> viewMap1 = new HashMap<>();
-
-                    viewMap1.put("name",pname);
-                    viewMap1.put("quantity",qty);
-                    viewMap1.put("price",price);
-
-                }
-                Toast.makeText(checkout.this,"Order Succesfully Placed", Toast.LENGTH_SHORT).show();
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(checkout.this,""+e.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
 
 
 
@@ -228,6 +198,29 @@ public class checkout extends AppCompatActivity {
             }
         });
 
+        //update status delivery
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference stsRef = database.getReference();
+        Calendar calForDate1 =  Calendar.getInstance();
+        SimpleDateFormat currentDate1 = new SimpleDateFormat("MMM dd, yyyy");
+        String saveDate1 = currentDate1.format(calForDate1.getTime());
+
+        stsRef.child("ViewOrders").child(Prevalent.currentUser.getUsername()).child(key).child("StatusDelivery").push();
+        String id = stsRef.child("ViewOrders").child(Prevalent.currentUser.getUsername()).child(key).child("StatusDelivery").push().getKey();
+        stsRef.child("ViewOrders").child(Prevalent.currentUser.getUsername()).child(key).child("StatusDelivery").child(id).child("status").setValue("Sender is preparing your parcel");
+        stsRef.child("ViewOrders").child(Prevalent.currentUser.getUsername()).child(key).child("StatusDelivery").child(id).child("date").setValue(saveDate);
+
+        //item update
+        FirebaseDatabase database1 = FirebaseDatabase.getInstance();
+        DatabaseReference stsRef1 = database1.getReference();
+
+        for(int i=0;i<list.size();i++){
+            stsRef1.child("ViewOrders").child(Prevalent.currentUser.getUsername()).child(key);
+            String id1 = stsRef.child("ViewOrders").child(Prevalent.currentUser.getUsername()).child(key).child("item").push().getKey();
+            stsRef1.child("ViewOrders").child(Prevalent.currentUser.getUsername()).child(key).child("item").child(id1).child("pname").setValue(list.get(i).getPname());
+            stsRef1.child("ViewOrders").child(Prevalent.currentUser.getUsername()).child(key).child("item").child(id1).child("quantity").setValue(list.get(i).getQuantity());
+            stsRef1.child("ViewOrders").child(Prevalent.currentUser.getUsername()).child(key).child("item").child(id1).child("price").setValue(list.get(i).getPrice());
+        }
 
     }
 

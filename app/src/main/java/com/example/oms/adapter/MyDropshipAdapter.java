@@ -13,6 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.oms.OrdersHelperClass;
 import com.example.oms.R;
 import com.example.oms.UserHelperClass;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -43,7 +47,8 @@ public class MyDropshipAdapter extends RecyclerView.Adapter<MyDropshipAdapter.My
         holder.name.setText(userHelperClass.getName());
         holder.username.setText(userHelperClass.getUsername());
         holder.address.setText(userHelperClass.getAddress());
-        holder.phone.setText(userHelperClass.getPhone());
+
+
 
     }
 
@@ -54,7 +59,7 @@ public class MyDropshipAdapter extends RecyclerView.Adapter<MyDropshipAdapter.My
 
     public static class  MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView name, username, address, phone;
+        TextView name, username, address, phone, dates;
         ImageView imageView;
 
 
@@ -64,6 +69,7 @@ public class MyDropshipAdapter extends RecyclerView.Adapter<MyDropshipAdapter.My
 
             //imageView = itemView.findViewById(R.id.imgprod);
             name = itemView.findViewById(R.id.dsname);
+            dates = itemView.findViewById(R.id.datestart);
             username = itemView.findViewById(R.id.username);
             address = itemView.findViewById(R.id.address);
             phone = itemView.findViewById(R.id.phone);

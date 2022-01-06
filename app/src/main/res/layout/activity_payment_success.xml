@@ -40,11 +40,13 @@
                 android:textSize="28sp" />
 
             <TextView
+                android:id="@+id/thankyoutxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/succeed_text"
                 android:layout_alignBottom="@id/succeed_icon"
-                android:layout_marginStart="18dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="0dp"
                 android:layout_marginBottom="2dp"
                 android:layout_toEndOf="@id/succeed_icon"
                 android:gravity="center"
@@ -52,14 +54,35 @@
                 android:textColor="@color/black"
                 android:textSize="21sp" />
 
+
         </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="2dp"
+                android:fontFamily="@font/muliblack"
+                android:text="You will earn 50 points for every order."
+                android:textColor="#F44336"
+                android:textSize="18sp"/>
+
+
+        </LinearLayout>
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="50dp"
             android:layout_marginEnd="18dp"
             android:background="#FFFFFF"
             android:orientation="horizontal"

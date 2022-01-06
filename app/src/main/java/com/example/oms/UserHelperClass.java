@@ -2,7 +2,7 @@ package com.example.oms;
 
 public class UserHelperClass {
 
-    String name, username, email, address, phone, password,image;
+    String name, username, email, address, phone, password,image, startDate;
 
     public UserHelperClass() {
 
@@ -16,7 +16,7 @@ public class UserHelperClass {
         this.image = image;
     }
 
-    public UserHelperClass(String name, String username, String email, String address, String phone, String password, String image) {
+    public UserHelperClass(String name, String username, String email, String address, String phone, String password, String image, String startDate) {
         this.name = name;
         this.username = username;
         this.email = email;
@@ -24,8 +24,17 @@ public class UserHelperClass {
         this.phone = phone;
         this.password = password;
         this.image = image;
+        this.startDate = startDate;
+
     }
 
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
 
     public String getName() {
         return name;

@@ -49,7 +49,6 @@ public class CheckoutAdapter extends RecyclerView.Adapter<CheckoutAdapter.MyView
 
         holder.itemView.setTag(cartModelList.get(position).getKey());
 
-
     }
 
 

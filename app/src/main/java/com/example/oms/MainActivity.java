@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -16,37 +17,51 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
 
+import com.example.oms.Prevalent.Prevalent;
 import com.example.oms.adapter.SliderAdapter;
 import com.example.oms.adapter.VideoAdapter;
+import com.example.oms.admin.DashboardAdmin;
+import com.example.oms.admin.DropshipList;
 import com.example.oms.admin.model.SliderData;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.mikhaellopez.circularimageview.CircularImageView;
 import com.smarteist.autoimageslider.SliderView;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Vector;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     //variables
     ImageView menuIcon;
     FloatingActionButton fab;
 
     //drawermenu
+    Button textView;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     RecyclerView recyclerView;
     Vector<YoutubeVideo>youtubeVideos=new Vector<YoutubeVideo>();
     LinearLayoutManager HorizontalLayout;
     CircularImageView circularImageView;
+    TextView points;
+    private DatabaseReference mDatabase;
 
 
     String url1 = "https://i.postimg.cc/QMHhw1Lw/Red-and-Gold-Classy-and-Elegant-Business-Christmas-Banner.png";
@@ -67,6 +82,39 @@ public class MainActivity extends AppCompatActivity{
         navigationView = findViewById(R.id.navigation_view);
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
+        points = findViewById(R.id.pointcollect);
+        textView = findViewById(R.id.viewreward);
+
+        textView.setPaintFlags(textView.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+  
+        initView();
+
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+        databaseReference.child("ViewOrders")
+                .child(Prevalent.currentUser.getUsername())
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        int sum = 0;
+
+                        for (DataSnapshot snapshot1 : snapshot.getChildren()){
+                          Map<String,Object> map = (Map<String, Object>) snapshot1.getValue();
+                          Object point = map.get("points");
+                          int pValue = Integer.parseInt(String.valueOf(point));
+                          sum += pValue;
+
+                          points.setText(String.valueOf(sum) + "pts");
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -211,5 +259,23 @@ public class MainActivity extends AppCompatActivity{
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
 
         }
+
+    private void initView() {
+        findViewById(R.id.viewreward).setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.viewreward:
+                openPopUpActivity();
+                break;
+        }
+    }
+
+    private void openPopUpActivity() {
+        Intent intent = new Intent(getApplicationContext(), PopUpActivity.class);
+        startActivity(intent);
+    }
 
 }

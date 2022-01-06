@@ -7,6 +7,7 @@ public class OrdersHelperClass {
     String price;
     String totalPrice;
     String key;
+    String keyProd;
     String name;
     String address;
     String phone;
@@ -27,6 +28,13 @@ public class OrdersHelperClass {
         this.image = image;
     }
 
+    public String getKeyProd() {
+        return keyProd;
+    }
+
+    public void setKeyProd(String keyProd) {
+        this.image = keyProd;
+    }
     public String getFee() {
         return fee;
     }
