@@ -19,7 +19,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class MyDropshipAdapter extends RecyclerView.Adapter<MyDropshipAdapter.MyViewHolder>{
 
@@ -60,6 +63,31 @@ public class MyDropshipAdapter extends RecyclerView.Adapter<MyDropshipAdapter.My
             holder.itemView.setLayoutParams(new RecyclerView.LayoutParams(0, 0));
         }
 
+        if(userHelperClass.getStartDate()!=null) {
+            String dateStr="";
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy");
+            Date date1 = null, date2 = null;
+            try {
+                date1 = sdf.parse(userHelperClass.getStartDate());
+                date2 = sdf.parse("14-1-2022");
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            System.out.println("date1 : " + sdf.format(date1));
+            System.out.println("date2 : " + sdf.format(date2));
+
+            int result = date1.compareTo(date2);
+            System.out.println("result: " + result);
+
+            if (result == 0) {
+                dateStr = "Today";
+            } else if (result < 0) {
+                dateStr = printDifference(date1, date2);
+                dateStr+= " days";
+            }
+            holder.timeago.setText(dateStr);
+        }
 
     }
 
@@ -71,7 +99,7 @@ public class MyDropshipAdapter extends RecyclerView.Adapter<MyDropshipAdapter.My
 
     public static class  MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView name, username, address, phone, dates;
+        TextView name, username, address, phone, dates, timeago;
         ImageView imageView;
 
 
@@ -85,9 +113,27 @@ public class MyDropshipAdapter extends RecyclerView.Adapter<MyDropshipAdapter.My
             username = itemView.findViewById(R.id.username);
             address = itemView.findViewById(R.id.address);
             phone = itemView.findViewById(R.id.phone);
+            timeago = itemView.findViewById(R.id.timeago);
 
         }
 
 
+    }
+
+    public String printDifference(Date startDate, Date endDate) {
+        String dateret="";
+        //milliseconds
+        long different = endDate.getTime() - startDate.getTime();
+
+        long secondsInMilli = 1000;
+        long minutesInMilli = secondsInMilli * 60;
+        long hoursInMilli = minutesInMilli * 60;
+        long daysInMilli = hoursInMilli * 24;
+
+        long elapsedDays = different / daysInMilli;
+        different = different % daysInMilli;
+
+        dateret = String.valueOf(elapsedDays);
+        return dateret;
     }
 }
