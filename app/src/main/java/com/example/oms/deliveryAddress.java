@@ -3,7 +3,10 @@ package com.example.oms;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.oms.Prevalent.Prevalent;
@@ -17,6 +20,7 @@ import com.squareup.picasso.Picasso;
 public class deliveryAddress extends AppCompatActivity {
 
     TextView address, phone, name;
+    ImageButton back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +30,15 @@ public class deliveryAddress extends AppCompatActivity {
         address =findViewById(R.id.addr);
         name =findViewById(R.id.fullname);
         phone =findViewById(R.id.phonee);
+        back = findViewById(R.id.backBtns);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(deliveryAddress.this, profileUser.class);
+                startActivity(intent);
+            }
+        });
 
         showAddress();
     }

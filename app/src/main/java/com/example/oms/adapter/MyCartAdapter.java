@@ -53,7 +53,7 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.MyCartView
         //event
         holder.btnMinus.setOnClickListener(v -> {
             minusCartItem(holder,cartModelList.get(position));
-            
+
         });
         holder.btnPlus.setOnClickListener(v -> {
             plusCartItem(holder,cartModelList.get(position));

@@ -1,108 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".checkout">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:layout_marginTop="10dp"
+        android:elevation="3dp"
+        android:background="@drawable/border"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Delivery Address"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
             android:textSize="18sp"
-            android:textColor="@color/black"
             android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/name"
-            android:layout_marginLeft="10dp"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="16sp"/>
 
         <TextView
             android:id="@+id/address"
-            android:layout_marginLeft="10dp"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="16sp"/>
 
 
         <TextView
             android:id="@+id/phone"
-            android:layout_marginLeft="10dp"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="16sp"/>
 
-            <ImageView
-                android:id="@+id/order_card_dotted_divider"
-                android:layout_width="match_parent"
-                android:layout_height="5dp"
-                android:layout_below="@+id/dateorder"
-                android:layout_marginTop="10dp"
-                android:contentDescription="Divider Line"
-                android:layerType="software"
-                app:srcCompat="@drawable/line_drawable" />
 
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:padding="10dp"
-                android:layout_marginTop="5dp"
-                android:id="@+id/checkoutrecview"
-                android:layout_width="match_parent"
-                android:layout_marginBottom="5dp"
-                android:layout_height="wrap_content" />
 
-            <TextView
-                android:id="@+id/deliveryfee"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Delivery fee: RM10"
-                android:layout_marginLeft="10dp"
-                android:textColor="@color/black"
-                android:textSize="16sp"/>
+    </LinearLayout>
 
-            <TextView
-                android:id="@+id/tprice"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Total price:"
-                android:textColor="@color/black"
-                android:layout_marginLeft="10dp"
-                android:textStyle="bold"
-                android:textSize="18sp"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="165dp"
+        android:padding="20dp"
+        android:elevation="3dp"
+        android:background="@drawable/border"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageprod"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/mockup4" />
+
+        <TextView
+            android:id="@+id/nameprod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="130dp"
+            android:text="Totebag Minimal"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="130dp"
+            android:layout_marginTop="30dp"
+            android:text="Variation: white"
+            android:textSize="16sp" />
 
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="5dp"
-                android:layout_below="@+id/dateorder"
-                android:layout_marginTop="10dp"
-                android:contentDescription="Divider Line"
-                android:layerType="software"
-                app:srcCompat="@drawable/line_drawable" />
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="130dp"
+            android:layout_marginTop="60dp"
+            android:text="RM20"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/qty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="350dp"
+            android:layout_marginTop="60dp"
+            android:text="x2"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/deliveryfee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="130dp"
+            android:layout_marginTop="90dp"
+            android:text="Delivery fee: RM10"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tprice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="130dp"
+            android:layout_marginTop="118dp"
+            android:text="RM48.00"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="328dp"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:elevation="3dp"
+        android:background="@drawable/border"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Payment method:"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="8dp"
-            android:textColor="@color/black"
             android:textSize="19sp"
             android:textStyle="bold"/>
 
@@ -111,7 +147,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="left"
-            android:layout_marginLeft="10dp"
             android:id="@+id/rdGroup"
             android:layout_below="@+id/txtView">
             <RadioButton
@@ -142,12 +177,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:text="Paypal" />
+                android:text="Paypal"
+                />
         </RadioGroup>
 
         <Button
             android:id="@+id/paynow"
-            android:layout_margin="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
@@ -159,9 +194,5 @@
 
     </LinearLayout>
 
-    </ScrollView>
 
-
-
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

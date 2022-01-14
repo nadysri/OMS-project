@@ -99,7 +99,7 @@ public class CartActivity extends AppCompatActivity implements CartLoadListener 
     }
 
     private void loadCartFromFirebase() {
-        
+
 
         List<CartModel> cartModels = new ArrayList<>();
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();

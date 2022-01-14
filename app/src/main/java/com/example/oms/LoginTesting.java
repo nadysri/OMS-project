@@ -174,4 +174,8 @@ public class LoginTesting extends AppCompatActivity {
     public void forgetPassCall(View view) {
         startActivity(new Intent(getApplicationContext(),ForgetPasswordActivity.class));
     }
+
+    public void callForgetPassword(View view) {
+        startActivity(new Intent(getApplicationContext(), ForgetPasswordActivity.class));
+    }
 }

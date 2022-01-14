@@ -2,8 +2,6 @@ package com.example.oms;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -18,12 +16,8 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.oms.Prevalent.Prevalent;
-import com.example.oms.adapter.CheckoutAdapter;
-import com.example.oms.adapter.MyDropshipAdapter;
 import com.example.oms.admin.model.CartModel;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -35,7 +29,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.security.Key;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 
@@ -46,10 +39,6 @@ public class checkout extends AppCompatActivity {
     RadioGroup radioGroup;
     Button btn;
     String Tprice;
-    RecyclerView recyclerView;
-    DatabaseReference database;
-    ArrayList<CartModel> list;
-    CheckoutAdapter checkoutAdapter;
 
 
     @Override
@@ -61,6 +50,9 @@ public class checkout extends AppCompatActivity {
         address = findViewById(R.id.address);
         phone = findViewById(R.id.phone);
         nameprod = findViewById(R.id.nameprod);
+        desc = findViewById(R.id.desc);
+        prices = findViewById(R.id.price);
+        qty= findViewById(R.id.qty);
         tprice = findViewById(R.id.tprice);
         imageView = findViewById(R.id.imageprod);
         fee = findViewById(R.id.deliveryfee);
@@ -71,38 +63,6 @@ public class checkout extends AppCompatActivity {
         Intent intent = getIntent();
         String Tprice = intent.getStringExtra("totalPrice");
         tprice.setText(Tprice);
-
-        recyclerView = findViewById(R.id.checkoutrecview);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        list = new ArrayList<>();
-        checkoutAdapter = new CheckoutAdapter(this,list);
-        recyclerView.setVisibility(View.VISIBLE);
-        recyclerView.setAdapter(checkoutAdapter);
-
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-        databaseReference.child("Cart")
-                .child(Prevalent.currentUser.getUsername())   //salahhh
-                .child("UNIQUE_USER_ID")
-                .addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for (DataSnapshot snapshot1 : snapshot.getChildren()){
-                            CartModel cartModel = snapshot1.getValue(CartModel.class);
-                            list.add(cartModel);
-
-                        }
-                        checkoutAdapter.notifyDataSetChanged();
-
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-
 
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -135,6 +95,7 @@ public class checkout extends AppCompatActivity {
 
 
         showAddress();
+        showOrder();
 
 
     }
@@ -155,17 +116,23 @@ public class checkout extends AppCompatActivity {
         final DatabaseReference viewRef = FirebaseDatabase.getInstance().getReference().child("ViewOrders").child(Prevalent.currentUser.getUsername()).push();
         String key = viewRef.getKey();
 
-        int point = 50;
+
+        //String trackNo = viewRef.push().getKey();
+
+        int point = 100;
         HashMap<String, Object> viewMap = new HashMap<>();
 
         viewMap.put("totalPrice", tprice.getText().toString());
         viewMap.put("date", saveDate);
-        viewMap.put("points", point);
         viewMap.put("time", saveTime);
+        viewMap.put("points", point);
         viewMap.put("name",name.getText().toString());
+        viewMap.put("quantity",qty.getText().toString());
         viewMap.put("phone",phone.getText().toString());
         viewMap.put("address",address.getText().toString());
+        viewMap.put("pname",nameprod.getText().toString());
         viewMap.put("orderId",key);
+        //viewMap.put("trackingNo",trackNo);
 
 
 
@@ -198,32 +165,39 @@ public class checkout extends AppCompatActivity {
             }
         });
 
-        //update status delivery
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference stsRef = database.getReference();
-        Calendar calForDate1 =  Calendar.getInstance();
-        SimpleDateFormat currentDate1 = new SimpleDateFormat("MMM dd, yyyy");
-        String saveDate1 = currentDate1.format(calForDate1.getTime());
-
-        stsRef.child("ViewOrders").child(Prevalent.currentUser.getUsername()).child(key).child("StatusDelivery").push();
-        String id = stsRef.child("ViewOrders").child(Prevalent.currentUser.getUsername()).child(key).child("StatusDelivery").push().getKey();
-        stsRef.child("ViewOrders").child(Prevalent.currentUser.getUsername()).child(key).child("StatusDelivery").child(id).child("status").setValue("Sender is preparing your parcel");
-        stsRef.child("ViewOrders").child(Prevalent.currentUser.getUsername()).child(key).child("StatusDelivery").child(id).child("date").setValue(saveDate);
-
-        //item update
-        FirebaseDatabase database1 = FirebaseDatabase.getInstance();
-        DatabaseReference stsRef1 = database1.getReference();
-
-        for(int i=0;i<list.size();i++){
-            stsRef1.child("ViewOrders").child(Prevalent.currentUser.getUsername()).child(key);
-            String id1 = stsRef.child("ViewOrders").child(Prevalent.currentUser.getUsername()).child(key).child("item").push().getKey();
-            stsRef1.child("ViewOrders").child(Prevalent.currentUser.getUsername()).child(key).child("item").child(id1).child("pname").setValue(list.get(i).getPname());
-            stsRef1.child("ViewOrders").child(Prevalent.currentUser.getUsername()).child(key).child("item").child(id1).child("quantity").setValue(list.get(i).getQuantity());
-            stsRef1.child("ViewOrders").child(Prevalent.currentUser.getUsername()).child(key).child("item").child(id1).child("price").setValue(list.get(i).getPrice());
-        }
 
     }
 
+
+    //retrieve order
+    private void showOrder() {
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+        databaseReference.child("Cart").child(Prevalent.currentUser.getUsername()).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot snapshot1 : snapshot.getChildren()){
+                    for(DataSnapshot ds : snapshot1.getChildren()) {
+
+                        String prodImage = ds.child("image").getValue(String.class);
+                        String userpname = ds.child("pname").getValue().toString();
+                        String userpqty = ds.child("quantity").getValue().toString();
+                        String userprice = ds.child("price").getValue().toString();
+
+                        Glide.with(getApplicationContext()).load(prodImage).into(imageView);
+                        nameprod.setText(userpname);
+                        prices.setText("RM"+userprice);
+                        qty.setText("x" + userpqty);
+                    }
+                }
+            }
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
 
     //retrieve address
 

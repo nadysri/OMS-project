@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -38,13 +40,14 @@ import butterknife.Unbinder;
 
 public class MyProductAdapter extends RecyclerView.Adapter<MyProductAdapter.MyDrinkViewHolder> {
     private Context context;
-    private List<ProductModel> productModelList;
+   List<ProductModel> productModelList;
     private CartLoadListener cartLoadListener;
 
     public MyProductAdapter(Context context, List<ProductModel> productModelList, CartLoadListener cartLoadListener) {
         this.context = context;
         this.productModelList = productModelList;
         this.cartLoadListener = cartLoadListener;
+
     }
 
     @NonNull
@@ -131,6 +134,7 @@ public class MyProductAdapter extends RecyclerView.Adapter<MyProductAdapter.MyDr
     public int getItemCount() {
         return productModelList.size();
     }
+
 
     public class MyDrinkViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @BindView(R.id.imageView)

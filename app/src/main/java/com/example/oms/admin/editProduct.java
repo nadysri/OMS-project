@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -13,6 +14,9 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.example.oms.CatalogueUser;
+import com.example.oms.Leaderboard;
+import com.example.oms.MainActivity;
 import com.example.oms.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -59,6 +63,14 @@ public class editProduct extends AppCompatActivity {
         cancel = findViewById(R.id.cancelbtn);
         mStorage = FirebaseStorage.getInstance();
         progressDialog = new ProgressDialog(this);
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(editProduct.this, ProductAdmin.class);
+                startActivity(intent);
+            }
+        });
 
         mAuth = FirebaseAuth.getInstance();
         progressDialog = new ProgressDialog(this);
@@ -124,6 +136,7 @@ public class editProduct extends AppCompatActivity {
                             progressDialog.dismiss();
                             Toast.makeText(editProduct.this, "Product successfully update!", Toast.LENGTH_SHORT).show();
                         }
+
                     })
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
@@ -131,6 +144,7 @@ public class editProduct extends AppCompatActivity {
                             progressDialog.dismiss();
                             Toast.makeText(editProduct.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
+
                     });
         }
         else {
@@ -159,6 +173,7 @@ public class editProduct extends AppCompatActivity {
                                                 progressDialog.dismiss();
                                                 Toast.makeText(editProduct.this, "Product Added...", Toast.LENGTH_SHORT).show();
                                             }
+
                                         })
                                         .addOnFailureListener(new OnFailureListener() {
                                             @Override
@@ -169,6 +184,7 @@ public class editProduct extends AppCompatActivity {
                                         });
                             }
                         }
+
                     })
                     .addOnFailureListener(new OnFailureListener() {
                         @Override

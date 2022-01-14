@@ -34,7 +34,7 @@
         android:id="@+id/joinnow"
         android:layout_width="380dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="#F6F3EE"
+        android:backgroundTint="#F44336"
         android:text="JOIN NOW"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

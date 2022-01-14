@@ -50,9 +50,9 @@ import butterknife.Unbinder;
 
 public class ProductAdapterAdmin extends RecyclerView.Adapter<ProductAdapterAdmin.MyDrinkViewHolder> {
 
-     Context context;
+    Context context;
     private List<ProductModel> productModelList;
-     CartLoadListener cartLoadListener;
+    CartLoadListener cartLoadListener;
 
     public ProductAdapterAdmin(Context context, List<ProductModel> productModelList, CartLoadListener cartLoadListener) {
         this.context = context;
@@ -84,7 +84,7 @@ public class ProductAdapterAdmin extends RecyclerView.Adapter<ProductAdapterAdmi
                         .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                
+
                                 notifyItemRemoved(position);
 
                                 deleteFromFirebase(productModelList.get(position));

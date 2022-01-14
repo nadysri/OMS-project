@@ -96,9 +96,6 @@
             android:exported="false" />
         <activity android:name=".admin.addProd" />
         <activity
-            android:name=".VerifyOTP"
-            android:exported="true" />
-        <activity
             android:name=".MainActivity"
             android:exported="true" />
         <activity

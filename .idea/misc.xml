@@ -69,7 +69,7 @@
         <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/activity_bottomnav.xml" value="0.20885416666666667" />
         <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/activity_cart.xml" value="0.25" />
         <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/activity_catalogue_user.xml" value="0.25" />
-        <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/activity_checkout.xml" value="0.1" />
+        <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/activity_checkout.xml" value="0.25" />
         <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/activity_dashboard.xml" value="0.25" />
         <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/activity_dashboard_admin.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/activity_dashboardadmin.xml" value="0.20652173913043478" />
@@ -82,10 +82,10 @@
         <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/activity_grid.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/activity_leaderboard.xml" value="0.25" />
         <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/activity_login.xml" value="0.25" />
-        <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/activity_login_testing.xml" value="0.15" />
+        <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/activity_login_testing.xml" value="0.22" />
         <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/activity_main_admin.xml" value="0.25" />
-        <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/activity_my_orders.xml" value="0.33" />
+        <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/activity_my_orders.xml" value="0.25" />
         <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/activity_navigation.xml" value="0.17527173913043478" />
         <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/activity_notification_admin.xml" value="0.15418502202643172" />
         <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/activity_order_admin.xml" value="0.25" />
@@ -114,7 +114,7 @@
         <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/content_user.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/custom_tab.xml" value="0.1" />
         <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/drink_item.xml" value="0.22" />
-        <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/dropshipitem.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/dropshipitem.xml" value="0.25" />
         <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/featured_card_design.xml" value="0.25" />
         <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/fragment_banner_slider.xml" value="0.1" />
         <entry key="..\:/Users/nitro/AndroidStudioProjects/oms/app/src/main/res/layout/fragment_catalogue.xml" value="0.25" />

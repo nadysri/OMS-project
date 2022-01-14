@@ -2,6 +2,7 @@ package com.example.oms.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,6 +64,7 @@ public class OrderAdmin2Adapter extends RecyclerView.Adapter<OrderAdmin2Adapter.
         holder.tprice.setText(ordersHelperClass.getTotalPrice());
         holder.dateorder.setText("Order date: " + ordersHelperClass.getDate());
         holder.tracking.setText("Tracking No:"+ ordersHelperClass.getTrackNo());
+        holder.receive.setText(ordersHelperClass.getStatusReceived());
         holder.status.setTag(ordersHelperClass.getKey());
         holder.status.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,7 +103,6 @@ public class OrderAdmin2Adapter extends RecyclerView.Adapter<OrderAdmin2Adapter.
                         stsRef.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                Object status = snapshot.getValue();
 
                             }
 
@@ -129,6 +130,7 @@ public class OrderAdmin2Adapter extends RecyclerView.Adapter<OrderAdmin2Adapter.
 
             }
         });
+
 
 
         // tracking
@@ -188,7 +190,7 @@ public class OrderAdmin2Adapter extends RecyclerView.Adapter<OrderAdmin2Adapter.
 
     public  static class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView pname, qty, orderId, tprice,tracking,dateorder,dsname, address, phone;
+        TextView pname, qty, orderId, tprice,tracking,dateorder,dsname, address, phone, receive;
         ImageView imageView;
         Button btn,status;
         AutoCompleteTextView autoCompleteTextView;
@@ -207,6 +209,7 @@ public class OrderAdmin2Adapter extends RecyclerView.Adapter<OrderAdmin2Adapter.
             btn = itemView.findViewById(R.id.arrangebtn);
             dateorder = itemView.findViewById(R.id.date);
             status = itemView.findViewById(R.id.statusbtn);
+            receive = itemView.findViewById(R.id.statusreceive);
 
         }
     }

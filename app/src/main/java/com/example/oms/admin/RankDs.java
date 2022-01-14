@@ -16,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -24,6 +25,8 @@ import android.widget.Toast;
 import com.example.oms.OrdersHelperClass;
 import com.example.oms.Prevalent.Prevalent;
 import com.example.oms.R;
+import com.example.oms.RegisterActivity;
+import com.example.oms.TermOfServicesActivity;
 import com.example.oms.UserHelperClass;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -49,6 +52,7 @@ public class RankDs extends AppCompatActivity {
     EditText ts1, ts2, ts3, ts4, ts5;
     AutoCompleteTextView sn1, sn2, sn3, sn4, sn5;
     Button savebtn;
+    ImageButton back;
     TextView monthyear;
     ProgressDialog progressDialog;
     private FirebaseDatabase db = FirebaseDatabase.getInstance();
@@ -76,6 +80,7 @@ public class RankDs extends AppCompatActivity {
         sn5 = findViewById(R.id.sd5);
         monthyear = findViewById(R.id.month);
         savebtn = findViewById(R.id.ranksavebtn);
+        back = findViewById(R.id.backBtn);
         progressDialog = new ProgressDialog(this);
         dbref = FirebaseDatabase.getInstance().getReference("Rank");
         list=new ArrayList<String>();
@@ -88,12 +93,21 @@ public class RankDs extends AppCompatActivity {
         fetchdata();
         showRank();
 
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RankDs.this, DashboardAdmin.class);
+                startActivity(intent);
+
+            }
+        });
+
         savebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 //String saveMonth;
-               // Calendar calForDate =  Calendar.getInstance();
+                // Calendar calForDate =  Calendar.getInstance();
                 //SimpleDateFormat currentMonth = new SimpleDateFormat("MMMM , yyyy");
                 //saveMonth = currentMonth.format(calForDate.getTime());
 

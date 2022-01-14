@@ -9,6 +9,7 @@
     android:layout_margin="15dp">
 
     <LinearLayout
+        android:id="@+id/show_item_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="125dp"
@@ -89,9 +90,20 @@
                 android:id="@+id/datestart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="02/02/22"
+                android:textStyle="italic"
+                android:text="Joined on 24/12/2021"
                 android:textColor="@color/black"
-                android:textSize="18sp"/>
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/timeago"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:layout_marginLeft="6dp"
+                android:text="3days"
+                android:textColor="#7E7D7D"
+                android:textSize="16sp"/>
 
         </LinearLayout>
 
@@ -100,6 +112,8 @@
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_image"
         android:layout_width="96dp"
+        android:layout_marginLeft="5dp"
+        android:layout_gravity="center_vertical"
         android:layout_height="96dp"
         android:src="@drawable/profile"/>
 

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#FFC71F"
     android:padding="30dp"
-    tools:context=".LoginActivity">
+    tools:context=".LoginTesting">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -99,6 +99,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
+                    android:onClick="callForgetPassword"
                     android:layout_alignParentRight="true"
                     android:background="#00000000"
                     android:text="Forgot password?"

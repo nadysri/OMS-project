@@ -117,7 +117,7 @@
                 android:layout_height="wrap_content"
                 android:text="RM2300"
                 android:textStyle="bold"
-                android:layout_marginLeft="65dp"
+                android:layout_marginLeft="63dp"
                 android:textSize="17sp"
                 android:layout_gravity="center_vertical"/>
 
@@ -176,7 +176,7 @@
                     android:layout_height="wrap_content"
                     android:text="RM2300"
                     android:textStyle="bold"
-                    android:layout_marginLeft="65dp"
+                    android:layout_marginLeft="63dp"
                     android:textSize="17sp"
                     android:layout_gravity="center_vertical"/>
 
@@ -236,7 +236,7 @@
                     android:layout_height="wrap_content"
                     android:text="RM2300"
                     android:textStyle="bold"
-                    android:layout_marginLeft="65dp"
+                    android:layout_marginLeft="63dp"
                     android:textSize="17sp"
                     android:layout_gravity="center_vertical"/>
 
@@ -295,7 +295,7 @@
                     android:layout_height="wrap_content"
                     android:text="RM2300"
                     android:textStyle="bold"
-                    android:layout_marginLeft="65dp"
+                    android:layout_marginLeft="63dp"
                     android:textSize="17sp"
                     android:layout_gravity="center_vertical"/>
 
@@ -355,7 +355,7 @@
                     android:layout_height="wrap_content"
                     android:text="RM2300"
                     android:textStyle="bold"
-                    android:layout_marginLeft="65dp"
+                    android:layout_marginLeft="63dp"
                     android:textSize="17sp"
                     android:layout_gravity="center_vertical"/>
 
@@ -373,12 +373,6 @@
                 android:text="Save"
                 android:layout_gravity="center"/>
 
-            <Button
-                android:id="@+id/rankupdatebtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Update"
-                android:layout_gravity="center"/>
 
         </LinearLayout>
     </ScrollView>

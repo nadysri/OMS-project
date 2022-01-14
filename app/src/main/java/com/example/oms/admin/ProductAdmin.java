@@ -43,6 +43,7 @@ public class ProductAdmin extends AppCompatActivity implements ProductLoadListen
 
     ProductLoadListener productLoadListener;
     CartLoadListener cartLoadListener;
+    ImageButton back;
 
 
     @Override
@@ -52,6 +53,14 @@ public class ProductAdmin extends AppCompatActivity implements ProductLoadListen
 
         //initialize and assign variable
         ImageButton imageButton =findViewById(R.id.btnadd);
+        back = findViewById(R.id.backBtn);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProductAdmin.this, DashboardAdmin.class);
+                startActivity(intent);
+            }
+        });
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override

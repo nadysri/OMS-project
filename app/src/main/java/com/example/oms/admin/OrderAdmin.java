@@ -50,7 +50,6 @@ public class OrderAdmin extends AppCompatActivity {
         btn = (Button)findViewById(R.id.submitbtn);
         status = (Button)findViewById(R.id.statusbtn);
         status = (Button)findViewById(R.id.okbtn);
-        sort = (ImageButton) findViewById(R.id.sortdate);
         btns = (ImageButton) findViewById(R.id.backBtns);
         btns.setOnClickListener(new View.OnClickListener() {
             @Override

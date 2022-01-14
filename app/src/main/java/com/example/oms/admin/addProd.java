@@ -19,6 +19,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.example.oms.Leaderboard;
+import com.example.oms.MainActivity;
 import com.example.oms.R;
 import com.google.android.gms.auth.api.signin.internal.Storage;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -41,7 +43,7 @@ public class addProd extends AppCompatActivity {
     FirebaseStorage mStorage;
     ImageButton imageButton;
     TextInputLayout pname, descr, price, stock;
-    Button button;
+    Button button,cncl;
     private static final int Gallery_Code=1;
     Uri imageUrl=null;
     ProgressDialog progressDialog;
@@ -63,6 +65,15 @@ public class addProd extends AppCompatActivity {
         mRef = mDatabase.getReference().child("Product");
         mStorage = FirebaseStorage.getInstance();
         progressDialog = new ProgressDialog(this);
+        cncl = findViewById(R.id.cancel);
+
+        cncl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(addProd.this, ProductAdmin.class);
+                startActivity(intent);
+            }
+        });
 
         mGetContent = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
             @Override

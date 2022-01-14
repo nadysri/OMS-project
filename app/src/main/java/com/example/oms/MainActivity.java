@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         textView = findViewById(R.id.viewreward);
 
         textView.setPaintFlags(textView.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-  
+
         initView();
 
 
@@ -99,12 +99,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         int sum = 0;
 
                         for (DataSnapshot snapshot1 : snapshot.getChildren()){
-                          Map<String,Object> map = (Map<String, Object>) snapshot1.getValue();
-                          Object point = map.get("points");
-                          int pValue = Integer.parseInt(String.valueOf(point));
-                          sum += pValue;
+                            Map<String,Object> map = (Map<String, Object>) snapshot1.getValue();
+                            Object point = map.get("points");
+                            int pValue = Integer.parseInt(String.valueOf(point));
+                            sum += pValue;
 
-                          points.setText(String.valueOf(sum) + "pts");
+                            points.setText(String.valueOf(sum) + "pts");
                         }
                     }
 
@@ -258,7 +258,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
 
-        }
+    }
 
     private void initView() {
         findViewById(R.id.viewreward).setOnClickListener(this);

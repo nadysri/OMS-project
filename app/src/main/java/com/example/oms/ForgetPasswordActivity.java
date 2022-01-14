@@ -1,7 +1,9 @@
 package com.example.oms;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -13,17 +15,23 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.hbb20.CountryCodePicker;
 
 public class ForgetPasswordActivity extends AppCompatActivity {
 
-    ImageView screenIcon;
+    ImageView screenIcon, backBtn;
     TextView title, description;
     TextInputLayout phoneNumberTextField;
     CountryCodePicker countryCodePicker;
     Animation animation;
     Button nextBtn;
     ProgressBar progressBar;
+    String _phoneNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,31 +45,27 @@ public class ForgetPasswordActivity extends AppCompatActivity {
         countryCodePicker = findViewById(R.id.country_code_picker);
         nextBtn = findViewById(R.id.forget_password_next_btn);
         progressBar = findViewById(R.id.progress_bar);
+        backBtn = findViewById(R.id.forget_password_back_btn);
 
-        animation = AnimationUtils.loadAnimation(this,R.anim.slide_animation);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), LoginTesting.class));
+            }
+        });
 
-        screenIcon.setAnimation(animation);
-        title.setAnimation(animation);
-        description.setAnimation(animation);
-        phoneNumberTextField.setAnimation(animation);
-        countryCodePicker.setAnimation(animation);
-        nextBtn.setAnimation(animation);
-
-    }
-
-    public void verifyPhoneNumber(View view) {
-        CheckInternet checkInternet = new CheckInternet();
-        if(!checkInternet.isConnected(this)){
-            showCustomDialog();
-            return;
-        }
+        nextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), ForgetPasswordActivity.class));
+            }
+        });
 
 
     }
 
-    private void showCustomDialog() {
-    }
 
-    public void callBackScreenFromForgetPassword(View view) {
-    }
+
 }
+
+    

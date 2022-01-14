@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.oms.OrdersHelperClass;
 import com.example.oms.R;
 import com.example.oms.UserHelperClass;
@@ -43,14 +44,25 @@ public class MyDropshipAdapter extends RecyclerView.Adapter<MyDropshipAdapter.My
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
+        Glide.with(context).load(list.get(position).getImage())
+                .into(holder.imageView);
         UserHelperClass userHelperClass = list.get(position);
         holder.name.setText(userHelperClass.getName());
         holder.username.setText(userHelperClass.getUsername());
         holder.address.setText(userHelperClass.getAddress());
+        holder.phone.setText(userHelperClass.getPhone());
+        holder.dates.setText("Joined on "+userHelperClass.getStartDate());
 
+
+        if(userHelperClass.getUsername().equalsIgnoreCase("admin"))
+        {
+            holder.itemView.setVisibility(View.GONE);
+            holder.itemView.setLayoutParams(new RecyclerView.LayoutParams(0, 0));
+        }
 
 
     }
+
 
     @Override
     public int getItemCount() {
@@ -67,7 +79,7 @@ public class MyDropshipAdapter extends RecyclerView.Adapter<MyDropshipAdapter.My
             super(itemView);
 
 
-            //imageView = itemView.findViewById(R.id.imgprod);
+            imageView = itemView.findViewById(R.id.profile_image);
             name = itemView.findViewById(R.id.dsname);
             dates = itemView.findViewById(R.id.datestart);
             username = itemView.findViewById(R.id.username);
@@ -75,5 +87,7 @@ public class MyDropshipAdapter extends RecyclerView.Adapter<MyDropshipAdapter.My
             phone = itemView.findViewById(R.id.phone);
 
         }
+
+
     }
 }

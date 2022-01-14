@@ -15,14 +15,15 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+
             <ImageView
+                android:id="@+id/btnback"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:layout_marginTop="5dp"
                 android:layout_marginLeft="5dp"
-                android:src="@drawable/previous_step"
-                android:background="@color/transparent"/>
-
+                android:layout_marginTop="5dp"
+                android:background="@color/transparent"
+                android:src="@drawable/previous_step" />
 
             <TextView
                 android:layout_width="wrap_content"

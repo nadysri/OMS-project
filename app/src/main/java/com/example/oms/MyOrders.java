@@ -5,15 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.example.oms.Prevalent.Prevalent;
 import com.example.oms.adapter.MyOrderAdapter;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,12 +26,15 @@ public class MyOrders extends AppCompatActivity {
     RecyclerView recyclerView;
     DatabaseReference database;
     MyOrderAdapter myAdapter;
+    ImageButton back;
     ArrayList<OrdersHelperClass> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_orders);
+
+        back = findViewById(R.id.backBtns);
 
         recyclerView = findViewById(R.id.orderrecview);
         recyclerView.setHasFixedSize(true);
@@ -42,26 +44,33 @@ public class MyOrders extends AppCompatActivity {
         myAdapter = new MyOrderAdapter(this,list);
         recyclerView.setAdapter(myAdapter);
 
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MyOrders.this, profileUser.class);
+                startActivity(intent);
+            }
+        });
+
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
         databaseReference.child("ViewOrders")
                 .child(Prevalent.currentUser.getUsername())
                 .addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                for (DataSnapshot snapshot1 : snapshot.getChildren()){
-                    OrdersHelperClass ordersHelperClass = snapshot1.getValue(OrdersHelperClass.class);
-                    list.add(ordersHelperClass);
-                }
-                myAdapter.notifyDataSetChanged();
-            }
+                        for (DataSnapshot snapshot1 : snapshot.getChildren()){
+                            OrdersHelperClass ordersHelperClass = snapshot1.getValue(OrdersHelperClass.class);
+                            list.add(ordersHelperClass);
+                        }
+                        myAdapter.notifyDataSetChanged();
+                    }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
-            }
-        });
-
+                    }
+                });
 
 
     }

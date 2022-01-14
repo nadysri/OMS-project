@@ -68,7 +68,6 @@
                 android:textColor="#3A3A3A"
                 android:textSize="15sp" />
 
-
             <ImageButton
                 android:id="@+id/editprofile"
                 android:layout_width="40dp"
@@ -87,7 +86,7 @@
             android:layout_marginTop="15dp"
             android:orientation="vertical">
 
-            <com.google.android.material.button.MaterialButton
+            <Button
                 android:id="@+id/deliveryaddr"
                 android:layout_width="380dp"
                 android:layout_height="70dp"

@@ -24,11 +24,12 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private Button RegisterButton;
+    private Button RegisterButton,cancel;
     TextInputLayout regName, regusername,regEmail,regAddress, regPnumber, regPassword, regCode;
     private ProgressDialog loading;
 
@@ -46,6 +47,17 @@ public class RegisterActivity extends AppCompatActivity {
         regPassword = findViewById(R.id.regpassword);
         regCode = findViewById(R.id.regcode);
         loading= new ProgressDialog(this);
+        cancel = findViewById(R.id.cancelS);
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RegisterActivity.this, LoginTesting.class);
+                startActivity(intent);
+
+            }
+        });
+
         RegisterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,10 +124,9 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot snapshot)
             {
-                String saveDate;
-                Calendar calForDate =  Calendar.getInstance();
-                SimpleDateFormat currentDate = new SimpleDateFormat("MMM dd, yyyy");
-                saveDate = currentDate.format(calForDate.getTime());
+                Date date = new Date();
+                SimpleDateFormat currentDate = new SimpleDateFormat("dd-M-yyyy");
+                final String saveDate = currentDate.format(date);
                 if(!(snapshot.child("Users").child(i_username).exists() ))
                 {
                     HashMap<String,Object>userdataMap =new HashMap<>();

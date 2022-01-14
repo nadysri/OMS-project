@@ -24,11 +24,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.text.SimpleDateFormat;
+
 public class profileUser extends AppCompatActivity {
     Button btnLogout;
     ImageButton editProfile;
     ImageView profilepic;
-    TextView fullnames, usernames;
+    TextView fullnames, usernames,datej;
     MaterialButton materialButton,delivery;
 
 
@@ -42,10 +44,11 @@ public class profileUser extends AppCompatActivity {
         fullnames =findViewById(R.id.fullname);
         usernames =findViewById(R.id.username);
         materialButton = findViewById(R.id.myorderbtn);
-        delivery = findViewById(R.id.deliveryaddr);
         profilepic = findViewById(R.id.profileIV);
 
+
         showAllUserData();
+
 
         materialButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -146,8 +149,10 @@ public class profileUser extends AppCompatActivity {
                 String user_username = snapshot.child("username").getValue(String.class);
                 String user_name = snapshot.child("name").getValue(String.class);
                 String profile = snapshot.child("image").getValue(String.class);
+               // String date = snapshot.child("startDate").getValue(String.class);
 
 
+                //datej.setText(date);
                 fullnames.setText(user_name);
                 usernames.setText("@"+ user_username);
                 try {

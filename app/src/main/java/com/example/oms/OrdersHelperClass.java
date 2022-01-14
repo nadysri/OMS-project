@@ -19,6 +19,17 @@ public class OrdersHelperClass {
     String image;
     String fee;
     String time;
+    String statusReceived;
+
+
+
+    public String getStatusReceived() {
+        return statusReceived;
+    }
+
+    public void setStatusReceived(String statusReceived) {
+        this.statusReceived = statusReceived;
+    }
 
     public String getImage() {
         return image;
